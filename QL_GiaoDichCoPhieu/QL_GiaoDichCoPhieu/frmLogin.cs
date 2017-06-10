@@ -73,7 +73,7 @@ namespace QL_GiaoDichCoPhieu
         {
             string username = txtUserName.Text;
             string password = txtPassword.Text;
-            string cnn = "Data Source=VUTRONGTUANDBE9;Initial Catalog=QL_GDCP"
+            string cnn = "Data Source=TIENMINH\\CSDLPT;Initial Catalog=QL_GDCP"
                         + ";User ID=" + username + ";password=" + password;
             if (connectionServer(cnn))
             {
