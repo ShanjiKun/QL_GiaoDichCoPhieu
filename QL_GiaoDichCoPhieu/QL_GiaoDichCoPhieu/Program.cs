@@ -18,5 +18,8 @@ namespace QL_GiaoDichCoPhieu
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());
         }
+
+        public static string UserName;
+        public static string Name;
     }
 }
