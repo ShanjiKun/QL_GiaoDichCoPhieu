@@ -42,8 +42,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -51,17 +49,15 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -184,26 +180,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(444, 123);
+            this.label12.Location = new System.Drawing.Point(337, 120);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(67, 13);
+            this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 13;
-            this.label12.Text = "Đơn vị: VND";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(234, 120);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(93, 20);
-            this.textBox1.TabIndex = 14;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(340, 118);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(86, 23);
-            this.simpleButton1.TabIndex = 15;
-            this.simpleButton1.Text = "Xem giá";
+            this.label12.Text = "Đơn vị:";
             // 
             // label13
             // 
@@ -268,48 +249,6 @@
             this.label19.TabIndex = 22;
             this.label19.Text = "Sacombank";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton3);
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Location = new System.Drawing.Point(234, 211);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 69);
-            this.panel1.TabIndex = 23;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(8, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(112, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Lệnh giới hạn (LO)";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(8, 26);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(175, 17);
-            this.radioButton2.TabIndex = 24;
-            this.radioButton2.Text = "Lệnh giới hạn giá mở cửa (ATO)";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(8, 49);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(185, 17);
-            this.radioButton3.TabIndex = 25;
-            this.radioButton3.Text = "Lệnh giới hạn giá đóng cửa (ATC)";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(234, 295);
@@ -349,17 +288,45 @@
             this.label21.TabIndex = 28;
             this.label21.Text = "0 VND";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(234, 117);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(84, 21);
+            this.comboBox1.TabIndex = 29;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(384, 120);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(66, 13);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "29,000 VND";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(231, 211);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(92, 13);
+            this.label23.TabIndex = 31;
+            this.label23.Text = "Khớp lệnh liên tục";
+            // 
             // frmBuys
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 417);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
@@ -367,8 +334,6 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.simpleButton1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -387,8 +352,6 @@
             this.Name = "frmBuys";
             this.Text = "frmBuys";
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -410,8 +373,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -419,14 +380,13 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }
