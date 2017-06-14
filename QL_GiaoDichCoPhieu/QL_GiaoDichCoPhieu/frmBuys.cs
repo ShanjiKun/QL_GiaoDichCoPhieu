@@ -16,5 +16,10 @@ namespace QL_GiaoDichCoPhieu
         {
             InitializeComponent();
         }
+
+        private void onFormLoaded(object sender, EventArgs e)
+        {
+            lbDateTime.Text = DateTime.Now.ToString();
+        }
     }
 }
