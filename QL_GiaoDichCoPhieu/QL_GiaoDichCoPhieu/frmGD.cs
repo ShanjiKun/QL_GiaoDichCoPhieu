@@ -19,11 +19,11 @@ namespace QL_GiaoDichCoPhieu
 
         private void frmGD_Load(object sender, EventArgs e)
         {
-            string sql = "select * from LENHDAT";
-            DataTable dtGD = Connection.getData(sql);
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dtGD;
-            gctGD.DataSource = bs;
+            //string sql = "select * from LENHDAT";
+            //DataTable dtGD = Connection.getData(sql);
+            //BindingSource bs = new BindingSource();
+            //bs.DataSource = dtGD;
+            //gctGD.DataSource = bs;
         }
     }
 }
