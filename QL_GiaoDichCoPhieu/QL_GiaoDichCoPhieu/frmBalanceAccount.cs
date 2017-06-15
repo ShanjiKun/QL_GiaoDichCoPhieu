@@ -22,16 +22,16 @@ namespace QL_GiaoDichCoPhieu
 
         private void frmBalanceAccount_Load(object sender, EventArgs e)
         {
-            string sql = "select TN.MaTK, TN.SoTien, NH.TenNH, NDT.HoTen from TAIKHOAN_NGANHANG as TN, NDT, NGANHANG as NH where TN.MaNH = NH.MaNH and TN.MaNDT = NDT.MaNDT and NDT.MaNDT = 111111";
-            dtAccount = Connection.getData(sql);
-            cmbAccount.DataSource = dtAccount;
-            cmbAccount.DisplayMember = "MaTK";
-            cmbAccount.ValueMember = "MaTK";
+            //string sql = "select TN.MaTK, TN.SoTien, NH.TenNH, NDT.HoTen from TAIKHOAN_NGANHANG as TN, NDT, NGANHANG as NH where TN.MaNH = NH.MaNH and TN.MaNDT = NDT.MaNDT and NDT.MaNDT = 111111";
+            //dtAccount = Connection.getData(sql);
+            //cmbAccount.DataSource = dtAccount;
+            //cmbAccount.DisplayMember = "MaTK";
+            //cmbAccount.ValueMember = "MaTK";
 
-            lblNameAccount.Text = dtAccount.Rows[0][3].ToString();
-            lblBalanceAccount.Text = dtAccount.Rows[0][1].ToString();
-            lblIdBank.Text = dtAccount.Rows[0][0].ToString();
-            lblNameBank.Text = dtAccount.Rows[0][2].ToString();
+            //lblNameAccount.Text = dtAccount.Rows[0][3].ToString();
+            //lblBalanceAccount.Text = dtAccount.Rows[0][1].ToString();
+            //lblIdBank.Text = dtAccount.Rows[0][0].ToString();
+            //lblNameBank.Text = dtAccount.Rows[0][2].ToString();
         }
 
         private void cmbAccount_SelectedValueChanged(object sender, EventArgs e)

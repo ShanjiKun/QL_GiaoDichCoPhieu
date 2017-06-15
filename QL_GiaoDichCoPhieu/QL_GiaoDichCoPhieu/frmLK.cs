@@ -19,11 +19,11 @@ namespace QL_GiaoDichCoPhieu
 
         private void frmLK_Load(object sender, EventArgs e)
         {
-            string sql = "select * from LENHKHOP";
-            DataTable dtLK = Connection.getData(sql);
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dtLK;
-            gctLK.DataSource = bs;
+            //string sql = "select * from LENHKHOP";
+            //DataTable dtLK = Connection.getData(sql);
+            //BindingSource bs = new BindingSource();
+            //bs.DataSource = dtLK;
+            //gctLK.DataSource = bs;
         }
     }
 }
