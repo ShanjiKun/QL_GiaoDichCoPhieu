@@ -40,30 +40,29 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbBalance = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lbPriceMax = new System.Windows.Forms.Label();
+            this.lbPriceMin = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lbPriceMiddle = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbStock = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lbBankName = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbAccountID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -178,14 +177,14 @@
             this.label10.TabIndex = 11;
             this.label10.Text = "Mật khẩu đặt lệnh:";
             // 
-            // label11
+            // lbBalance
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(219, 65);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(86, 13);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "10,000,000 VND";
+            this.lbBalance.AutoSize = true;
+            this.lbBalance.Location = new System.Drawing.Point(219, 65);
+            this.lbBalance.Name = "lbBalance";
+            this.lbBalance.Size = new System.Drawing.Size(86, 13);
+            this.lbBalance.TabIndex = 12;
+            this.lbBalance.Text = "10,000,000 VND";
             // 
             // label12
             // 
@@ -205,23 +204,23 @@
             this.label13.TabIndex = 16;
             this.label13.Text = "Giá trần:";
             // 
-            // label14
+            // lbPriceMax
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(273, 42);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(13, 13);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "0";
+            this.lbPriceMax.AutoSize = true;
+            this.lbPriceMax.Location = new System.Drawing.Point(273, 42);
+            this.lbPriceMax.Name = "lbPriceMax";
+            this.lbPriceMax.Size = new System.Drawing.Size(13, 13);
+            this.lbPriceMax.TabIndex = 17;
+            this.lbPriceMax.Text = "0";
             // 
-            // label15
+            // lbPriceMin
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(379, 42);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(13, 13);
-            this.label15.TabIndex = 19;
-            this.label15.Text = "0";
+            this.lbPriceMin.AutoSize = true;
+            this.lbPriceMin.Location = new System.Drawing.Point(379, 42);
+            this.lbPriceMin.Name = "lbPriceMin";
+            this.lbPriceMin.Size = new System.Drawing.Size(13, 13);
+            this.lbPriceMin.TabIndex = 19;
+            this.lbPriceMin.Text = "0";
             // 
             // label16
             // 
@@ -232,14 +231,14 @@
             this.label16.TabIndex = 18;
             this.label16.Text = "Giá sàn:";
             // 
-            // label17
+            // lbPriceMiddle
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(487, 42);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(13, 13);
-            this.label17.TabIndex = 21;
-            this.label17.Text = "0";
+            this.lbPriceMiddle.AutoSize = true;
+            this.lbPriceMiddle.Location = new System.Drawing.Point(487, 42);
+            this.lbPriceMiddle.Name = "lbPriceMiddle";
+            this.lbPriceMiddle.Size = new System.Drawing.Size(13, 13);
+            this.lbPriceMiddle.TabIndex = 21;
+            this.lbPriceMiddle.Text = "0";
             // 
             // label18
             // 
@@ -289,13 +288,14 @@
             this.label21.TabIndex = 28;
             this.label21.Text = "0 VND";
             // 
-            // comboBox1
+            // cbStock
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(222, 10);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(84, 21);
-            this.comboBox1.TabIndex = 29;
+            this.cbStock.FormattingEnabled = true;
+            this.cbStock.Location = new System.Drawing.Point(222, 10);
+            this.cbStock.Name = "cbStock";
+            this.cbStock.Size = new System.Drawing.Size(84, 21);
+            this.cbStock.TabIndex = 29;
+            this.cbStock.SelectedValueChanged += new System.EventHandler(this.oncbStockChanged);
             // 
             // label22
             // 
@@ -315,27 +315,27 @@
             this.label23.TabIndex = 31;
             this.label23.Text = "Khớp lệnh liên tục";
             // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(222, 8);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(107, 20);
-            this.comboBoxEdit1.TabIndex = 32;
-            // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.label24);
+            this.panelControl1.Controls.Add(this.cbAccountID);
+            this.panelControl1.Controls.Add(this.lbBankName);
             this.panelControl1.Controls.Add(this.label19);
             this.panelControl1.Controls.Add(this.label3);
-            this.panelControl1.Controls.Add(this.comboBoxEdit1);
-            this.panelControl1.Controls.Add(this.label11);
+            this.panelControl1.Controls.Add(this.lbBalance);
             this.panelControl1.Controls.Add(this.label6);
             this.panelControl1.Location = new System.Drawing.Point(12, 87);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(524, 89);
             this.panelControl1.TabIndex = 33;
+            // 
+            // lbBankName
+            // 
+            this.lbBankName.AutoSize = true;
+            this.lbBankName.Location = new System.Drawing.Point(219, 38);
+            this.lbBankName.Name = "lbBankName";
+            this.lbBankName.Size = new System.Drawing.Size(56, 13);
+            this.lbBankName.TabIndex = 34;
+            this.lbBankName.Text = "Vietinbank";
             // 
             // label19
             // 
@@ -346,15 +346,6 @@
             this.label19.TabIndex = 33;
             this.label19.Text = "Tên ngân hàng:";
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(219, 38);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(56, 13);
-            this.label24.TabIndex = 34;
-            this.label24.Text = "Vietinbank";
-            // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.button1);
@@ -364,7 +355,7 @@
             this.panelControl2.Controls.Add(this.label7);
             this.panelControl2.Controls.Add(this.label22);
             this.panelControl2.Controls.Add(this.label8);
-            this.panelControl2.Controls.Add(this.comboBox1);
+            this.panelControl2.Controls.Add(this.cbStock);
             this.panelControl2.Controls.Add(this.label9);
             this.panelControl2.Controls.Add(this.label21);
             this.panelControl2.Controls.Add(this.label10);
@@ -373,11 +364,11 @@
             this.panelControl2.Controls.Add(this.textBox4);
             this.panelControl2.Controls.Add(this.label13);
             this.panelControl2.Controls.Add(this.textBox3);
-            this.panelControl2.Controls.Add(this.label14);
+            this.panelControl2.Controls.Add(this.lbPriceMax);
             this.panelControl2.Controls.Add(this.textBox2);
             this.panelControl2.Controls.Add(this.label16);
-            this.panelControl2.Controls.Add(this.label17);
-            this.panelControl2.Controls.Add(this.label15);
+            this.panelControl2.Controls.Add(this.lbPriceMiddle);
+            this.panelControl2.Controls.Add(this.lbPriceMin);
             this.panelControl2.Controls.Add(this.label18);
             this.panelControl2.Location = new System.Drawing.Point(12, 182);
             this.panelControl2.Name = "panelControl2";
@@ -392,6 +383,15 @@
             this.button1.TabIndex = 35;
             this.button1.Text = "Đặt lệnh";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // cbAccountID
+            // 
+            this.cbAccountID.FormattingEnabled = true;
+            this.cbAccountID.Location = new System.Drawing.Point(223, 8);
+            this.cbAccountID.Name = "cbAccountID";
+            this.cbAccountID.Size = new System.Drawing.Size(121, 21);
+            this.cbAccountID.TabIndex = 35;
+            this.cbAccountID.SelectedValueChanged += new System.EventHandler(this.oncbAccountIDChanged);
             // 
             // frmBuys
             // 
@@ -409,7 +409,6 @@
             this.Text = "Lênh mua";
             this.Load += new System.EventHandler(this.onFormLoaded);
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -435,27 +434,27 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbBalance;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbPriceMax;
+        private System.Windows.Forms.Label lbPriceMin;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbPriceMiddle;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbStock;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label lbBankName;
         private System.Windows.Forms.Label label19;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbAccountID;
     }
 }
