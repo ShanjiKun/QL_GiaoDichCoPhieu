@@ -58,21 +58,17 @@
             this.radNam = new System.Windows.Forms.RadioButton();
             this.dtpBirthDay = new System.Windows.Forms.DateTimePicker();
             this.cmbBank = new System.Windows.Forms.ComboBox();
-            this.nGANHANGBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.qL_GDCPDataSet = new QL_GiaoDichCoPhieu.QL_GDCPDataSet();
             this.nGANHANGBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLGDCPDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qL_GDCPDataSet = new QL_GiaoDichCoPhieu.QL_GDCPDataSet();
             this.nGANHANGTableAdapter = new QL_GiaoDichCoPhieu.QL_GDCPDataSetTableAdapters.NGANHANGTableAdapter();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nGANHANGBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qL_GDCPDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGANHANGBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLGDCPDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_GDCPDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(339, 306);
+            this.btnDelete.Location = new System.Drawing.Point(440, 345);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 24;
@@ -216,7 +212,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(293, 247);
+            this.label13.Location = new System.Drawing.Point(40, 351);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(40, 13);
             this.label13.TabIndex = 34;
@@ -273,7 +269,7 @@
             // 
             // txtMoney
             // 
-            this.txtMoney.Location = new System.Drawing.Point(368, 244);
+            this.txtMoney.Location = new System.Drawing.Point(115, 348);
             this.txtMoney.Name = "txtMoney";
             this.txtMoney.Size = new System.Drawing.Size(147, 20);
             this.txtMoney.TabIndex = 8;
@@ -320,7 +316,7 @@
             // 
             // cmbBank
             // 
-            this.cmbBank.DataSource = this.nGANHANGBindingSource1;
+            this.cmbBank.DataSource = this.nGANHANGBindingSource;
             this.cmbBank.DisplayMember = "TenNH";
             this.cmbBank.FormattingEnabled = true;
             this.cmbBank.Location = new System.Drawing.Point(115, 279);
@@ -329,20 +325,15 @@
             this.cmbBank.TabIndex = 6;
             this.cmbBank.ValueMember = "MaNH";
             // 
-            // nGANHANGBindingSource1
+            // nGANHANGBindingSource
             // 
-            this.nGANHANGBindingSource1.DataMember = "NGANHANG";
-            this.nGANHANGBindingSource1.DataSource = this.qL_GDCPDataSet;
+            this.nGANHANGBindingSource.DataMember = "NGANHANG";
+            this.nGANHANGBindingSource.DataSource = this.qL_GDCPDataSet;
             // 
             // qL_GDCPDataSet
             // 
             this.qL_GDCPDataSet.DataSetName = "QL_GDCPDataSet";
             this.qL_GDCPDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // qLGDCPDataSetBindingSource
-            // 
-            this.qLGDCPDataSetBindingSource.DataSource = this.qL_GDCPDataSet;
-            this.qLGDCPDataSetBindingSource.Position = 0;
             // 
             // nGANHANGTableAdapter
             // 
@@ -352,7 +343,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 341);
+            this.ClientSize = new System.Drawing.Size(548, 397);
             this.Controls.Add(this.cmbBank);
             this.Controls.Add(this.dtpBirthDay);
             this.Controls.Add(this.panel1);
@@ -386,10 +377,8 @@
             this.Load += new System.EventHandler(this.frmCreateAccountNDT_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nGANHANGBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qL_GDCPDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGANHANGBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLGDCPDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_GDCPDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,10 +414,8 @@
         private System.Windows.Forms.RadioButton radNam;
         private System.Windows.Forms.DateTimePicker dtpBirthDay;
         private System.Windows.Forms.ComboBox cmbBank;
-        private System.Windows.Forms.BindingSource nGANHANGBindingSource;
-        private System.Windows.Forms.BindingSource qLGDCPDataSetBindingSource;
         private QL_GDCPDataSet qL_GDCPDataSet;
-        private System.Windows.Forms.BindingSource nGANHANGBindingSource1;
+        private System.Windows.Forms.BindingSource nGANHANGBindingSource;
         private QL_GDCPDataSetTableAdapters.NGANHANGTableAdapter nGANHANGTableAdapter;
     }
 }
