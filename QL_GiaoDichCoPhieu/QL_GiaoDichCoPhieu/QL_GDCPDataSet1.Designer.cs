@@ -417,7 +417,7 @@ namespace QL_GiaoDichCoPhieu {
         private void InitClass() {
             this.DataSetName = "QL_GDCPDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/QL_GDCPDataSet.xsd";
+            this.Namespace = "http://tempuri.org/QL_GDCPDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableCOPHIEU = new COPHIEUDataTable();

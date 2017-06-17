@@ -617,3 +617,4 @@ C:\Users\TienMinh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhi
 C:\Users\TienMinh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.exe.licenses
 C:\Users\TienMinh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.exe
 C:\Users\TienMinh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.pdb
+C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmCreateAccountNDT.resources
