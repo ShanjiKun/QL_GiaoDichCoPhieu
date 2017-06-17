@@ -41,7 +41,6 @@
             this.btnSell = new DevExpress.XtraBars.BarButtonItem();
             this.btnCreateAccount = new DevExpress.XtraBars.BarButtonItem();
             this.btnChangePassword = new DevExpress.XtraBars.BarButtonItem();
-            this.tbnCreateNDT = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -55,6 +54,7 @@
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
@@ -77,10 +77,9 @@
             this.btnBuy,
             this.btnSell,
             this.btnCreateAccount,
-            this.btnChangePassword,
-            this.tbnCreateNDT});
+            this.btnChangePassword});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 13;
+            this.ribbon.MaxItemId = 12;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -175,14 +174,6 @@
             this.btnChangePassword.LargeGlyph = global::QL_GiaoDichCoPhieu.Properties.Resources.icons8_key_2;
             this.btnChangePassword.Name = "btnChangePassword";
             // 
-            // tbnCreateNDT
-            // 
-            this.tbnCreateNDT.Caption = "Tài khoản NDT";
-            this.tbnCreateNDT.Id = 12;
-            this.tbnCreateNDT.LargeGlyph = global::QL_GiaoDichCoPhieu.Properties.Resources.icons8_businessman;
-            this.tbnCreateNDT.Name = "tbnCreateNDT";
-            this.tbnCreateNDT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tbnCreateNDT_ItemClick);
-            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -259,17 +250,22 @@
             // ribbonPage5
             // 
             this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup8});
+            this.ribbonPageGroup8,
+            this.ribbonPageGroup9});
             this.ribbonPage5.Name = "ribbonPage5";
             this.ribbonPage5.Text = "Tài khoản";
             // 
             // ribbonPageGroup8
             // 
             this.ribbonPageGroup8.ItemLinks.Add(this.btnCreateAccount);
-            this.ribbonPageGroup8.ItemLinks.Add(this.btnChangePassword);
-            this.ribbonPageGroup8.ItemLinks.Add(this.tbnCreateNDT);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.Text = "ribbonPageGroup8";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnChangePassword);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "ribbonPageGroup9";
             // 
             // ribbonStatusBar
             // 
@@ -334,9 +330,9 @@
         private DevExpress.XtraBars.BarButtonItem btnSell;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraBars.BarButtonItem btnCreateAccount;
         private DevExpress.XtraBars.BarButtonItem btnChangePassword;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
-        private DevExpress.XtraBars.BarButtonItem tbnCreateNDT;
     }
 }

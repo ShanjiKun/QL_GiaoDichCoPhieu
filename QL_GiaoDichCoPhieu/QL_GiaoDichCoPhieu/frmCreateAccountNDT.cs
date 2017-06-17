@@ -54,7 +54,7 @@ namespace QL_GiaoDichCoPhieu
                 temp.SDT = txtPhone.Text;
                 temp.email = txtEmail.Text;
 
-                if (Connection.addDB(temp))
+                if (Connection.addDB(temp, "createNDT"))
                     MessageBox.Show("Thêm nhà đầu tư thành công !", "Message", MessageBoxButtons.OK);
             }
         }
@@ -63,7 +63,6 @@ namespace QL_GiaoDichCoPhieu
         {
             // TODO: This line of code loads data into the 'qL_GDCPDataSet.NGANHANG' table. You can move, or remove it, as needed.
             this.nGANHANGTableAdapter.Fill(this.qL_GDCPDataSet.NGANHANG);
-
 
         }
 
