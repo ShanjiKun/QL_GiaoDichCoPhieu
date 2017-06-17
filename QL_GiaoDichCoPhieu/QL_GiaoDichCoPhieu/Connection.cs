@@ -12,7 +12,7 @@ namespace QL_GiaoDichCoPhieu
     {
         public static DataTable getData(string SQL)
         {
-            string connectionString = "Data Source=VUTRONGTUANDBE9;Initial Catalog=QL_GDCP"
+            string connectionString = "Data Source="+Program.serverName+";Initial Catalog=QL_GDCP"
                         + ";Integrated Security=SSPI";
             //string SQL = "select MASV, HO, TEN, MALOP, PHAI, NGAYSINH, NOISINH, DIACHI, GHICHU, NGHIHOC from Sinhvien";
             // tạo kết nối đến CSDL           
@@ -31,6 +31,42 @@ namespace QL_GiaoDichCoPhieu
             da.Fill(dt);
             cnn.Close();
             return dt;
+        }
+
+        public static bool addDB(addNDT ndt)
+        {
+            string connectionString = "Data Source=" + Program.serverName +"; Initial Catalog=QL_GDCP"
+                        + ";Integrated Security=SSPI";
+            SqlConnection cnn = new SqlConnection(connectionString);
+            string SQL = "createNDT";
+
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+
+            // truyền tham số vào SqlCommand
+            cmd.Parameters.AddWithValue("@MaNDT", ndt.maNDT);
+            cmd.Parameters.AddWithValue("@HoTen", ndt.hoTen);
+            cmd.Parameters.AddWithValue("@NgaySinh", ndt.ngaySinh);
+            cmd.Parameters.AddWithValue("@MKGD", ndt.MKGD);
+            cmd.Parameters.AddWithValue("@DiaChi", ndt.diaChi);
+            cmd.Parameters.AddWithValue("@Phone", ndt.SDT);
+            cmd.Parameters.AddWithValue("@CMND", ndt.CMND);
+            cmd.Parameters.AddWithValue("@GioiTinh", ndt.gioiTinh);
+            cmd.Parameters.AddWithValue("@Email", ndt.email);
+            cmd.Parameters.AddWithValue("@MaTK", ndt.maTK);
+            cmd.Parameters.AddWithValue("@MaNH", ndt.nganHang);
+            cmd.Parameters.AddWithValue("@SoTien", ndt.soTien);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // kiểm tra SqlConnection
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+
+            int count = cmd.ExecuteNonQuery();
+            cnn.Close();
+            return (count > 0);
         }
     }
 }

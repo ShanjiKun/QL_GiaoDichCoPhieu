@@ -93,6 +93,16 @@ namespace QL_GiaoDichCoPhieu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_businessman {
+            get {
+                object obj = ResourceManager.GetObject("icons8-businessman", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_buy {
             get {
                 object obj = ResourceManager.GetObject("icons8-buy", resourceCulture);
