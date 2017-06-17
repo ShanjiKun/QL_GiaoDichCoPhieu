@@ -12,7 +12,7 @@ namespace QL_GiaoDichCoPhieu
     {
         public static DataTable getData(string SQL)
         {
-            string connectionString = "Data Source=VUTRONGTUANDBE9;Initial Catalog=QL_GDCP"
+            string connectionString = "Data Source="+Program.serverName+";Initial Catalog=QL_GDCP"
                         + ";Integrated Security=SSPI";
             //string SQL = "select MASV, HO, TEN, MALOP, PHAI, NGAYSINH, NOISINH, DIACHI, GHICHU, NGHIHOC from Sinhvien";
             // tạo kết nối đến CSDL           
@@ -35,7 +35,7 @@ namespace QL_GiaoDichCoPhieu
 
         public static bool addDB(addNDT ndt)
         {
-            string connectionString = "Data Source=VUTRONGTUANDBE9;Initial Catalog=QL_GDCP"
+            string connectionString = "Data Source=" + Program.serverName +"; Initial Catalog=QL_GDCP"
                         + ";Integrated Security=SSPI";
             SqlConnection cnn = new SqlConnection(connectionString);
             string SQL = "createNDT";
