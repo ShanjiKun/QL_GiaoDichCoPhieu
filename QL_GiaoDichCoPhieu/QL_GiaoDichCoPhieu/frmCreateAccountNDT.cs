@@ -62,9 +62,8 @@ namespace QL_GiaoDichCoPhieu
         private void frmCreateAccountNDT_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qL_GDCPDataSet.NGANHANG' table. You can move, or remove it, as needed.
+            this.nGANHANGTableAdapter.Connection.ConnectionString = Program.datasetConnectionString;
             this.nGANHANGTableAdapter.Fill(this.qL_GDCPDataSet.NGANHANG);
-
-
         }
 
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
