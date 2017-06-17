@@ -136,5 +136,17 @@ namespace QL_GiaoDichCoPhieu
             frmLogin frm = new frmLogin();
             frm.Show();
         }
+
+        private void tbnCreateNDT_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!CheckExistForm("frmCreateAccountNDT"))
+            {
+                frmCreateAccountNDT frmCreateAccountNDT = new frmCreateAccountNDT();
+                frmCreateAccountNDT.MdiParent = this;
+                frmCreateAccountNDT.Show();
+            }
+            else
+                ActiveChildForm("frmCreateAccountNDT");
+        }
     }
 }
