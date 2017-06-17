@@ -26,11 +26,10 @@ namespace QL_GiaoDichCoPhieu.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=QL_GDCP;Persist Security Info=True;User ID=sa;Passw" +
-            "ord=1234")]
-        public string QL_GDCPConnectionStringGD {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=VUTRONGTUANDBE9;Initial Catalog=QL_GDCP;Integrated Security=True")]
+        public string QL_GDCPConnectionString {
             get {
-                return ((string)(this["QL_GDCPConnectionStringGD"]));
+                return ((string)(this["QL_GDCPConnectionString"]));
             }
         }
     }
