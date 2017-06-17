@@ -31,7 +31,7 @@ namespace QL_GiaoDichCoPhieu.Models
             //------------
             if (connectionString == null)
             {
-                string cnn = "Data Source=VINHHUYNHA678;Initial Catalog=QL_GDCP"
+                string cnn = "Data Source="+Program.serverName+";Initial Catalog=QL_GDCP"
                         + ";User ID=linhdan" + ";password=1234";
                setConnectionString(cnn);
             }
