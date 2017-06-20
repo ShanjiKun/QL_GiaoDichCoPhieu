@@ -13,7 +13,13 @@ namespace QL_GiaoDichCoPhieu
 {
     public partial class frmBuys : Form
     {
-        double availableBalance = 0;
+        UInt64 availableBalance = 0;
+
+        float priceMax;
+        float priceMin;
+
+        UInt64 totalPrice;
+
         public frmBuys()
         {
             InitializeComponent();
@@ -31,7 +37,13 @@ namespace QL_GiaoDichCoPhieu
             loadStock();
         }
 
-        //--Method
+        //--Method--
+        //--------Handle Transaction------
+        void handleTransaction()
+        {
+
+        }
+        //--------------------------------
         void loadTimeTitle()
         {
             lbDateTime.Text = DateTime.Now.ToString();
@@ -64,10 +76,11 @@ namespace QL_GiaoDichCoPhieu
         }
         void updateTotalPrice()
         {
-            int stockBanlance = Int32.Parse(tbStockBalance.Text);
-            int buyPrice = Int32.Parse(tbBuyPrice.Text);
-            int totalPrice = stockBanlance * buyPrice;
-            lbTotalPrice.Text = totalPrice.ToString();
+            decimal stockBanlance = nudBuyBalance.Value;
+            decimal buyPrice = nudBuyPrice.Value;
+            UInt64 total = Decimal.ToUInt64(stockBanlance*buyPrice*1000);
+            lbTotalPrice.Text = total.ToString() + " VND";
+            totalPrice = total;
         }
         bool valideate()
         {
@@ -100,7 +113,7 @@ namespace QL_GiaoDichCoPhieu
             i = 0;
             while (i < listCB.Count)
             {
-                if (listCB[i].value == cbAccountID.Text) break;
+                if (listCB[i].value == cbStock.Text) break;
                 i++;
             }
             if (i == listCB.Count)
@@ -109,43 +122,50 @@ namespace QL_GiaoDichCoPhieu
                 return false;
             }
             //---Stock Balance---
-            if (tbStockBalance.Text.Length == 0)
+            if (nudBuyBalance.Value == 0)
             {
                 MessageBox.Show("Stock Balance empty!");
                 return false;
             }
-            if (double.Parse(tbStockBalance.Text) > 10000000)
+            if (nudBuyBalance.Value > 10000000)
             {
                 MessageBox.Show("Maximum of Stock balance is 10,000,000!");
                 return false;
             }
             //---Buy Price----
-            if (tbBuyPrice.Text.Length == 0)
+            if (nudBuyPrice.Value == 0)
             {
-                MessageBox.Show("Buy price empty!");
+                MessageBox.Show("Buy price must greater than 0.0!");
                 return false;
             }
-            if (double.Parse(tbBuyPrice.Text) > 10000000)
+            if (nudBuyPrice.Value > 10000)
             {
-                MessageBox.Show("Maximum of Stock balance is 10,000,000!");
+                MessageBox.Show("Maximum of buy price is 10,000,000!");
                 return false;
             }
-            //--
+            if ((float)nudBuyPrice.Value*1000 < priceMin || (float)nudBuyPrice .Value*1000 > priceMax)
+            {
+                MessageBox.Show("Price must in " + priceMin + " < your price < " + priceMax);
+                return false;
+            }
+            //---Password----
             if (tbPasswordTransaction.Text.Length == 0)
             {
                 MessageBox.Show("Password empty!");
                 return false;
             }
-
+            //---TotalPrice----
+            if (totalPrice > availableBalance)
+            {
+                MessageBox.Show("Your balance don't enough!");
+            }
             return true;
         }
         //----Action----
         private void oncbAccountIDChanged(object sender, EventArgs e)
         {
-            if (!cbAccountID.SelectedValue.GetType().Equals(typeof(String))) return;
-
-            String accountID = cbAccountID.SelectedValue.ToString();
-            List<String> list = DatabaseManager.sharedInstance().getBankNameAndBalance(accountID);
+            BankAccount bankAcc = (BankAccount)cbAccountID.SelectedItem;
+            List<String> list = DatabaseManager.sharedInstance().getBankNameAndBalance(bankAcc.accountID);
             if (list.Count == 0)
             {
                 MessageBox.Show("Can't get Name and Banlance!");
@@ -153,8 +173,8 @@ namespace QL_GiaoDichCoPhieu
             }
 
             lbBankName.Text = list[0];
-            lbBalance.Text = list[1] + " VND";
-            availableBalance = double.Parse(list[1]);
+            lbBalance.Text = double.Parse(list[1])*1000 + " VND";
+            availableBalance = (UInt64)float.Parse(list[1])*1000;
         }
 
         private void oncbStockChanged(object sender, EventArgs e)
@@ -171,23 +191,24 @@ namespace QL_GiaoDichCoPhieu
             lbPriceMax.Text = list[0];
             lbPriceMin.Text = list[1];
             lbPriceMiddle.Text = list[2];
+
+            priceMax = float.Parse(list[0]) * 1000;
+            priceMin = float.Parse(list[1]) * 1000;
         }
 
-        private void onLbStockBalanceChanged(object sender, EventArgs e)
+        private void onBuyBalanceChanged(object sender, EventArgs e)
         {
-            if (tbStockBalance.Text.Length == 0 || tbBuyPrice.Text.Length == 0) return;
             updateTotalPrice();
         }
 
-        private void onLbBuyPriceChanged(object sender, EventArgs e)
+        private void onBuyPriceChanged(object sender, EventArgs e)
         {
-            if (tbStockBalance.Text.Length == 0 || tbBuyPrice.Text.Length == 0) return;
             updateTotalPrice();
         }
 
         private void onBuyTapped(object sender, EventArgs e)
         {
-            valideate();
+            if (valideate()) 
         }
     }
 }
