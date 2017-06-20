@@ -208,7 +208,7 @@ namespace QL_GiaoDichCoPhieu
 
         private void onBuyTapped(object sender, EventArgs e)
         {
-            if (valideate()) 
+            if (valideate()) handleTransaction(); 
         }
     }
 }
