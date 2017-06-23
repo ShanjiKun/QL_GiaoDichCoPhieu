@@ -60,7 +60,6 @@ namespace QL_GiaoDichCoPhieu.Models
         {
             this.connectionString = _connectionString;
         }
-
         //----Get----
         public List<BankAccount> getListBankAccount()
         {
@@ -130,6 +129,22 @@ namespace QL_GiaoDichCoPhieu.Models
                 return 1;
             });
             return list;
+        }
+        //---Insert----
+        public int createTransaction(string transType, string mode, int buyCount, string stockID, float price, string accountID)
+        {
+            string query = "INSERT INTO LENHDAT(NgayGD, LoaiLenh, PhuongThuc, SoLuong, MaCP, Gia, MaTK, TrangThai)"
+                            +"VALUES("
+                            +DateTime.Now + ", "
+                            +transType + ", "
+                            +mode +", "
+                            +buyCount +", "
+                            +stockID +", "
+                            +price +", "
+                            +accountID +", "
+                            +"Cho"
+                            +")";
+            return 0;
         }
     }
 }

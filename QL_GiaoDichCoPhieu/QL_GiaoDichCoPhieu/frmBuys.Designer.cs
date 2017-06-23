@@ -59,16 +59,16 @@
             this.lbBankName = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.button1 = new System.Windows.Forms.Button();
-            this.nudBuyBalance = new System.Windows.Forms.NumericUpDown();
             this.nudBuyPrice = new System.Windows.Forms.NumericUpDown();
+            this.nudBuyCount = new System.Windows.Forms.NumericUpDown();
+            this.btnBuy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBuyBalance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBuyPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBuyCount)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -259,6 +259,7 @@
             this.tbPasswordTransaction.Size = new System.Drawing.Size(120, 21);
             this.tbPasswordTransaction.TabIndex = 26;
             this.tbPasswordTransaction.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbPasswordTransaction.TextChanged += new System.EventHandler(this.onTextChanged);
             // 
             // label20
             // 
@@ -349,8 +350,8 @@
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.nudBuyPrice);
-            this.panelControl2.Controls.Add(this.nudBuyBalance);
-            this.panelControl2.Controls.Add(this.button1);
+            this.panelControl2.Controls.Add(this.nudBuyCount);
+            this.panelControl2.Controls.Add(this.btnBuy);
             this.panelControl2.Controls.Add(this.label4);
             this.panelControl2.Controls.Add(this.label5);
             this.panelControl2.Controls.Add(this.label23);
@@ -375,30 +376,6 @@
             this.panelControl2.Size = new System.Drawing.Size(524, 258);
             this.panelControl2.TabIndex = 34;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(222, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 33);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Đặt lệnh";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.onBuyTapped);
-            // 
-            // nudBuyBalance
-            // 
-            this.nudBuyBalance.Location = new System.Drawing.Point(222, 98);
-            this.nudBuyBalance.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.nudBuyBalance.Name = "nudBuyBalance";
-            this.nudBuyBalance.Size = new System.Drawing.Size(120, 21);
-            this.nudBuyBalance.TabIndex = 36;
-            this.nudBuyBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nudBuyBalance.ValueChanged += new System.EventHandler(this.onBuyBalanceChanged);
-            // 
             // nudBuyPrice
             // 
             this.nudBuyPrice.DecimalPlaces = 1;
@@ -418,6 +395,31 @@
             this.nudBuyPrice.TabIndex = 37;
             this.nudBuyPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nudBuyPrice.ValueChanged += new System.EventHandler(this.onBuyPriceChanged);
+            // 
+            // nudBuyCount
+            // 
+            this.nudBuyCount.Location = new System.Drawing.Point(222, 98);
+            this.nudBuyCount.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.nudBuyCount.Name = "nudBuyCount";
+            this.nudBuyCount.Size = new System.Drawing.Size(120, 21);
+            this.nudBuyCount.TabIndex = 36;
+            this.nudBuyCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudBuyCount.ValueChanged += new System.EventHandler(this.onBuyBalanceChanged);
+            // 
+            // btnBuy
+            // 
+            this.btnBuy.Enabled = false;
+            this.btnBuy.Location = new System.Drawing.Point(222, 219);
+            this.btnBuy.Name = "btnBuy";
+            this.btnBuy.Size = new System.Drawing.Size(119, 33);
+            this.btnBuy.TabIndex = 35;
+            this.btnBuy.Text = "Đặt lệnh";
+            this.btnBuy.UseVisualStyleBackColor = true;
+            this.btnBuy.Click += new System.EventHandler(this.onBuyTapped);
             // 
             // frmBuys
             // 
@@ -441,8 +443,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBuyBalance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBuyPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBuyCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,9 +482,9 @@
         private System.Windows.Forms.Label lbBankName;
         private System.Windows.Forms.Label label19;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuy;
         private System.Windows.Forms.ComboBox cbAccountID;
         private System.Windows.Forms.NumericUpDown nudBuyPrice;
-        private System.Windows.Forms.NumericUpDown nudBuyBalance;
+        private System.Windows.Forms.NumericUpDown nudBuyCount;
     }
 }
