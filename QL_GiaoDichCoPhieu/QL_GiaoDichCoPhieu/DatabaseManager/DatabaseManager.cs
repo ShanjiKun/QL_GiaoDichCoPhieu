@@ -130,19 +130,35 @@ namespace QL_GiaoDichCoPhieu.Models
             });
             return list;
         }
+
+        public int getStockBalance(string stockID)
+        {
+            string maNDT = "111111";
+            int stockBalance = 0;
+            String query = "SELECT SoLuong FROM SOHUU WHERE MaNDT = '"+maNDT+"' AND MaCP = '" + stockID + "'";
+            getData(query, (SqlDataReader reader) => {
+
+                while (reader.Read())
+                {
+                   stockBalance = reader.GetInt32(0);
+                }
+                return 1;
+            });
+            return stockBalance;
+        }
         //---Insert----
         public int createTransaction(string transType, string mode, int buyCount, string stockID, float price, string accountID)
         {
             string query = "INSERT INTO LENHDAT(NgayGD, LoaiLenh, PhuongThuc, SoLuong, MaCP, Gia, MaTK, TrangThai)"
-                            +"VALUES("
-                            +DateTime.Now + ", "
-                            +transType + ", "
-                            +mode +", "
-                            +buyCount +", "
-                            +stockID +", "
-                            +price +", "
-                            +accountID +", "
-                            +"Cho"
+                            +"VALUES('"
+                            +DateTime.Now + "', '"
+                            +transType + "', '"
+                            +mode +"', "
+                            +buyCount +", '"
+                            +stockID +"', "
+                            +price +", '"
+                            +accountID +"', "
+                            +"'Cho'"
                             +")";
             return 0;
         }
