@@ -860,3 +860,6 @@ C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\b
 C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\bin\Debug\stdole.dll
 C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.Report.frmSKDSLD.resources
 C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmChangePassword.resources
+C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu - 24\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\bin\Debug\QL_GiaoDichCoPhieu.exe.config
+C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu - 24\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.exe
+C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu - 24\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.pdb
