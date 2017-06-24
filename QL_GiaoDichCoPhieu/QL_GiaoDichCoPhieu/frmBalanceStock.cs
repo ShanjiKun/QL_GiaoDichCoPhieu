@@ -19,7 +19,11 @@ namespace QL_GiaoDichCoPhieu
 
         private void frmBalanceStock_Load(object sender, EventArgs e)
         {
-            gctBalanceStock.DataSource = Connection.getDSCP("111111");
+            string sql = "select SH.MaCP, SH.SoLuong, CP.TenCty from SOHUU as SH, COPHIEU as CP where SH.MaNDT = 111111";
+            DataTable dtBalanceStock = Connection.getData(sql);
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dtBalanceStock;
+            gctBalanceStock.DataSource = bs;
         }
     }
 }

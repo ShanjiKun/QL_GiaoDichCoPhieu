@@ -41,27 +41,31 @@ namespace QL_GiaoDichCoPhieu
         {
 
             string sql = "select * from LENHKHOP";
+
             DataTable dtLK = Connection.getData(sql);
+
             BindingSource bs = new BindingSource();
+
             bs.DataSource = dtLK;
+
             gctLK.DataSource = bs;
 
         }
 
         private void btnXem_Click(object sender, EventArgs e)
         {
-            string toDate = dtpToDate.Value.ToString();
-            string fromDate = dtpFromDate.Value.ToString();
+            //string toDate = dtpToDate.Value.ToShortDateString();
+            //string fromDate = dtpFromDate.Value.ToShortDateString();
 
-            string sql = "select * from LENHKHOP where NgayGD >= '" + fromDate + "' and NgayGD <= '" + toDate + "'";
+            //string sql = "select * from LENHKHOP where NgayGD < " + fromDate + " and NgayGD > " + toDate;
 
-            DataTable dtGD = Connection.getData(sql);
+            //DataTable dtGD = Connection.getData(sql);
 
-            BindingSource bs = new BindingSource();
+            //BindingSource bs = new BindingSource();
 
-            bs.DataSource = dtGD;
+            //bs.DataSource = dtGD;
 
-            gctLK.DataSource = bs;
+            //gctLK.DataSource = bs;
         }
     }
 

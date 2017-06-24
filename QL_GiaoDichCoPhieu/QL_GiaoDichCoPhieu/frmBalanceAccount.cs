@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;using System.Data.SqlClient;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,7 +22,7 @@ namespace QL_GiaoDichCoPhieu
 
         private void frmBalanceAccount_Load(object sender, EventArgs e)
         {
-            string sql = "exec SP_GETACCNDT '"+ Program.UserName +"'";
+            string sql = "select TN.MaTK, TN.SoTien, NH.TenNH, NDT.HoTen from TAIKHOAN_NGANHANG as TN, NDT, NGANHANG as NH where TN.MaNH = NH.MaNH and TN.MaNDT = NDT.MaNDT and NDT.MaNDT = 111111";
             dtAccount = Connection.getData(sql);
             cmbAccount.DataSource = dtAccount;
             cmbAccount.DisplayMember = "MaTK";
@@ -31,16 +31,7 @@ namespace QL_GiaoDichCoPhieu
             lblNameAccount.Text = dtAccount.Rows[0][3].ToString();
             lblBalanceAccount.Text = dtAccount.Rows[0][1].ToString();
             lblIdBank.Text = dtAccount.Rows[0][0].ToString();
-            lblNameBank.Text = dtAccount.Rows[0][2].ToString();
-
-            SqlDataReader sdr = Connection.getAvailableMoney(cmbAccount.SelectedValue.ToString());
-            if (sdr.Read())
-            {
-                int total = Convert.ToInt32(dtAccount.Rows[0][1]);
-                int allow = Convert.ToInt32(sdr[0]);
-                lblAllowBalance.Text = (total - allow).ToString();
-            }
-            else lblAllowBalance.Text = dtAccount.Rows[0][1].ToString();
+            lblNameBank.Text = dtAccount.Rows[0][2].ToString();
         }
 
         private void cmbAccount_SelectedValueChanged(object sender, EventArgs e)
@@ -50,19 +41,6 @@ namespace QL_GiaoDichCoPhieu
             lblBalanceAccount.Text = dtAccount.Rows[index][1].ToString();
             lblIdBank.Text = dtAccount.Rows[index][0].ToString();
             lblNameBank.Text = dtAccount.Rows[index][2].ToString();
-            SqlDataReader sdr = Connection.getAvailableMoney(cmbAccount.SelectedValue.ToString());
-            if (sdr.Read())
-            {
-                int total = Convert.ToInt32(dtAccount.Rows[0][1]);
-                int allow = Convert.ToInt32(sdr[0]);
-                lblAllowBalance.Text = (total - allow).ToString();
-            }
-            else lblAllowBalance.Text = dtAccount.Rows[index][1].ToString();
-        }
-
-        private void cmbAccount_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        }
     }
 }

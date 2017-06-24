@@ -67,10 +67,8 @@ namespace QL_GiaoDichCoPhieu
         {
             string username = txtUserName.Text;
             string password = txtPassword.Text;
-            string cnn = "Data Source="+Program.serverName+";" +
-                         "Initial Catalog=QL_GDCP;" +
-                         "User id="+username+";" +
-                         "Password="+password+";";
+            string cnn = "Data Source=VUTRONGTUANDBE9;Initial Catalog=QL_GDCP"
+                        + ";User ID=" + username + ";password=" + password;
             if (connectionServer(cnn))
             {
                 string query = "exec SP_DANGNHAP '" + username + "'";
@@ -78,24 +76,14 @@ namespace QL_GiaoDichCoPhieu
                 if (sdr == null)
                     return;
                 sdr.Read();
-
+
                 Program.UserName = sdr.GetString(0);
-                Program.Name = sdr.GetString(2);
+                Program.Name = sdr.GetString(1);
 
                 frmMain frmMain = new frmMain();
                 this.Hide();
                 frmMain.Show();
             }
-        }
-
-        private void txtUserName_Click(object sender, EventArgs e)
-        {
-            txtUserName.Text = "";
-        }
-
-        private void txtPassword_Click(object sender, EventArgs e)
-        {
-            txtPassword.Text = "";
-        }
+        }
     }
 }

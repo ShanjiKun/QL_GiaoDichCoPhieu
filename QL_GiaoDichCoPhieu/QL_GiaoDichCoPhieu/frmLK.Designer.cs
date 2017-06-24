@@ -60,7 +60,6 @@
             // 
             // dtpFromDate
             // 
-            this.dtpFromDate.CustomFormat = "yyyy-mm-dd";
             this.dtpFromDate.Location = new System.Drawing.Point(252, 55);
             this.dtpFromDate.Name = "dtpFromDate";
             this.dtpFromDate.Size = new System.Drawing.Size(140, 20);
@@ -68,7 +67,6 @@
             // 
             // dtpToDate
             // 
-            this.dtpToDate.CustomFormat = "yyyy-mm-dd";
             this.dtpToDate.Location = new System.Drawing.Point(40, 56);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Size = new System.Drawing.Size(140, 20);

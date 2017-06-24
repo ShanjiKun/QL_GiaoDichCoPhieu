@@ -16,12 +16,12 @@ namespace QL_GiaoDichCoPhieu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmMain());
         }
 
         public static string UserName;
         public static string Name;
         public static string serverName = Environment.MachineName + "";
-        public static string datasetConnectionString = "Data Source = " + serverName + "; Initial Catalog = QL_GDCP; Integrated Security = True";
+        public static string datasetConnectionString = "Data Source = "+serverName+"; Initial Catalog = QL_GDCP; Integrated Security = True";
     }
 }
