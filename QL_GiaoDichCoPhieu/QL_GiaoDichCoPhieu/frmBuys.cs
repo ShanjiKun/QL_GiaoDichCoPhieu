@@ -48,6 +48,13 @@ namespace QL_GiaoDichCoPhieu
             float price = (float)nudBuyPrice.Value;
             string accountID = cbAccountID.Text;
             DatabaseManager.sharedInstance().createTransaction(transID, mode, buyCount, stockID, price, accountID);
+            refreshUI();
+        }
+        void refreshUI()
+        {
+            nudBuyCount.Value = 0;
+            nudBuyPrice.Value = 0;
+            tbPasswordTransaction.Text = "";
         }
         //--------------------------------
         void loadTimeTitle()

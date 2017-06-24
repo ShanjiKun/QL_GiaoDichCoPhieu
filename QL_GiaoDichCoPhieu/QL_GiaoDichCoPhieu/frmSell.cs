@@ -42,13 +42,21 @@ namespace QL_GiaoDichCoPhieu
         //--------Handle Transaction------
         void handleTransaction()
         {
-            string transID = "M";
+            string transID = "B";
             string mode = "LO";
             int buyCount = Decimal.ToInt32(nudSellCount.Value);
             string stockID = cbStock.Text;
             float price = (float)nudSellPrice.Value;
             string accountID = cbAccountID.Text;
             DatabaseManager.sharedInstance().createTransaction(transID, mode, buyCount, stockID, price, accountID);
+            refreshUI();
+        }
+
+        void refreshUI()
+        {
+            nudSellCount.Value = 0;
+            nudSellPrice.Value = 0;
+            tbPasswordTransaction.Text = "";
         }
         //--------------------------------
         void loadTimeTitle()

@@ -25,7 +25,7 @@ namespace QL_GiaoDichCoPhieu.Models
             return instance;
         }
         //----Private methods----
-        private void getData(String query, Func<SqlDataReader, int> onSuccess)
+        private void execute(String query, Func<SqlDataReader, int> onSuccess)
         {
             //----Temp----
             //------------
@@ -66,7 +66,7 @@ namespace QL_GiaoDichCoPhieu.Models
             List<BankAccount> list = new List<BankAccount>();
 
             String query = "SELECT * FROM TAIKHOAN_NGANHANG";
-            getData(query, (SqlDataReader reader) => {
+            execute(query, (SqlDataReader reader) => {
 
                 while (reader.Read())
                 {
@@ -86,7 +86,7 @@ namespace QL_GiaoDichCoPhieu.Models
             List<String> list = new List<String>();
 
             String query = "SELECT nh.TenNH, tk.SoTien FROM NGANHANG nh inner join(SELECT MaNH, SoTien FROM TAIKHOAN_NGANHANG WHERE MaTK = '"+accountID+"') tk on tk.MaNH = nh.MaNH";
-            getData(query, (SqlDataReader reader) => {
+            execute(query, (SqlDataReader reader) => {
 
                 while (reader.Read())
                 {
@@ -102,7 +102,7 @@ namespace QL_GiaoDichCoPhieu.Models
             List<ComboBoxItem> list = new List<ComboBoxItem>();
 
             String query = "SELECT MaCP FROM COPHIEU";
-            getData(query, (SqlDataReader reader) => {
+            execute(query, (SqlDataReader reader) => {
 
                 while (reader.Read())
                 {
@@ -118,7 +118,7 @@ namespace QL_GiaoDichCoPhieu.Models
             List<String> list = new List<String>();
 
             String query = "SELECT GiaTran, GiaSan, GiaTC FROM LICHSUGIA WHERE MaCP = '"+stockID+"'";
-            getData(query, (SqlDataReader reader) => {
+            execute(query, (SqlDataReader reader) => {
 
                 while (reader.Read())
                 {
@@ -136,7 +136,7 @@ namespace QL_GiaoDichCoPhieu.Models
             string maNDT = "111111";
             int stockBalance = 0;
             String query = "SELECT SoLuong FROM SOHUU WHERE MaNDT = '"+maNDT+"' AND MaCP = '" + stockID + "'";
-            getData(query, (SqlDataReader reader) => {
+            execute(query, (SqlDataReader reader) => {
 
                 while (reader.Read())
                 {
@@ -147,20 +147,20 @@ namespace QL_GiaoDichCoPhieu.Models
             return stockBalance;
         }
         //---Insert----
-        public int createTransaction(string transType, string mode, int buyCount, string stockID, float price, string accountID)
+        public bool createTransaction(string transType, string mode, int buyCount, string stockID, float price, string accountID)
         {
-            string query = "INSERT INTO LENHDAT(NgayGD, LoaiLenh, PhuongThuc, SoLuong, MaCP, Gia, MaTK, TrangThai)"
-                            +"VALUES('"
-                            +DateTime.Now + "', '"
-                            +transType + "', '"
-                            +mode +"', "
-                            +buyCount +", '"
-                            +stockID +"', "
-                            +price +", '"
-                            +accountID +"', "
-                            +"'Cho'"
-                            +")";
-            return 0;
+            bool isSuccess = true;
+            string query = "EXEC SP_KhopLenh '"+transType+"', "+price+", '"+stockID+"', "+buyCount+", '"+accountID+"'";
+            execute(query, (SqlDataReader reader) => {
+
+                if (reader.Read())
+                {
+                    MessageBox.Show(reader[0] + " " + reader[1] + " " + reader[2]);
+                    isSuccess = false;
+                }
+                return 1;
+            });
+            return isSuccess;
         }
     }
 }
