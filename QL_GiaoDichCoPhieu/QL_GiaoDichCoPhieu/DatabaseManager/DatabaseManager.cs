@@ -150,7 +150,7 @@ namespace QL_GiaoDichCoPhieu.Models
         public bool createTransaction(string transType, string mode, int buyCount, string stockID, float price, string accountID)
         {
             bool isSuccess = true;
-            string query = "EXEC SP_KhopLenh '"+transType+"', "+price+", '"+stockID+"', "+buyCount+", '"+accountID+"'";
+            string query = "EXEC SP_TaoGDKhopLenh '" + transType+"', "+price+", '"+stockID+"', "+buyCount+", '"+accountID+"'";
             execute(query, (SqlDataReader reader) => {
 
                 if (reader.Read())
