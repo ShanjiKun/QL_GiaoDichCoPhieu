@@ -25,7 +25,7 @@ namespace QL_GiaoDichCoPhieu.Models
             return instance;
         }
         //----Private methods----
-        private void execute(String query, Func<SqlDataReader, int> onSuccess)
+        private bool execute(String query, Func<SqlDataReader, int> onSuccess)
         {
             //----Temp----
             //------------
@@ -48,10 +48,12 @@ namespace QL_GiaoDichCoPhieu.Models
                     onSuccess(reader);
                 }
                 conn.Close();
+                return true;
             }
             catch (SqlException e)
             {
                 MessageBox.Show(e.Number.ToString());
+                return false;
             }
         }
         //----Public methods----
@@ -149,9 +151,10 @@ namespace QL_GiaoDichCoPhieu.Models
         //---Insert----
         public bool createTransaction(string transType, string mode, int buyCount, string stockID, float price, string accountID)
         {
-            bool isSuccess = true;
-            string query = "EXEC SP_TaoGDKhopLenh '" + transType+"', "+price+", '"+stockID+"', "+buyCount+", '"+accountID+"'";
-            execute(query, (SqlDataReader reader) => {
+            bool isSuccess;
+            string userID = Program.UserName;
+            string query = "EXEC SP_TaoGDKhopLenh '" + transType+"', "+price+", '"+stockID+"', "+buyCount+", '"+userID+"', '"+accountID+"'";
+            isSuccess = execute(query, (SqlDataReader reader) => {
 
                 if (reader.Read())
                 {

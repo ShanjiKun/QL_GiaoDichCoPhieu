@@ -6,6 +6,7 @@ CREATE PROCEDURE SP_TaoGDKhopLenh(
 	@gia_A float,
 	@maCP_A varchar(10),
 	@soLuong_A int,
+	@maNDT_A varchar(20),
 	@maTK_A varchar(20)
 )
 AS
@@ -17,8 +18,8 @@ BEGIN TRY
    DECLARE @ngayGD_A varchar(50)
    SET @ngayGD_A = GETDATE()
    --Insert new Transaction
-	INSERT INTO LENHDAT(NgayGD, LoaiLenh, PhuongThuc, SoLuong, MaCP, Gia, MaTK, TrangThai)
-		   VALUES(@ngayGD_A, @loaiLenh_A, 'LO', @soLuong_A, @maCP_A, @gia_A, @maTK_A, 'CHO')
+	INSERT INTO LENHDAT(NgayGD, LoaiLenh, PhuongThuc, SoLuong, MaCP, Gia, MaNDT, MaTK, TrangThai)
+		   VALUES(@ngayGD_A, @loaiLenh_A, 'LO', @soLuong_A, @maCP_A, @gia_A, @maNDT_A, @maTK_A, 'CHO')
 	SELECT @maGD_A = @@IDENTITY
 
 	--Local var
@@ -28,6 +29,7 @@ BEGIN TRY
 	DECLARE @gia_B float
 	DECLARE @soLuong_B int
 	DECLARE @trangThaiGD_B varchar(10)
+	DECLARE @maNDT_B varchar(20)
 	DECLARE @maTK_B varchar(20)
 
 	DECLARE @ketThuc int --1: Kết thúc. 0: Khớp tiếp
@@ -37,6 +39,7 @@ BEGIN TRY
 		MaGD int,
 		Gia float NOT NULL,
 		SoLuong int NOT NULL,
+		MaNDT varchar(20) NOT NULL,
 		MaTK varchar(20) NOT NULL,
 		TrangThai varchar(10) NOT NULL
 	)
@@ -46,7 +49,7 @@ BEGIN TRY
 	IF(@loaiLenh_A = 'M')
 	BEGIN
 		INSERT INTO #temp
-		SELECT MaGD, Gia, SoLuong, MaTK, TrangThai
+		SELECT MaGD, Gia, SoLuong, MaNDT, MaTK, TrangThai
 		FROM LENHDAT 
 		WHERE NgayGD>@currentDate AND LoaiLenh='B' AND MaCP=@maCP_A AND Gia<=@gia_A AND (TrangThai='CHO' OR TrangThai='MOTPHAN')
 		ORDER BY Gia ASC, NgayGD ASC
@@ -54,16 +57,16 @@ BEGIN TRY
 	ELSE
 	BEGIN
 		INSERT INTO #temp
-		SELECT MaGD, Gia, SoLuong, MaTK, TrangThai
+		SELECT MaGD, Gia, SoLuong, MaNDT, MaTK, TrangThai
 		FROM LENHDAT 
 		WHERE NgayGD>@currentDate AND LoaiLenh='M' AND MaCP=@maCP_A AND Gia>=@gia_A AND (TrangThai='CHO' OR TrangThai='MOTPHAN')
 		ORDER BY Gia DESC, NgayGD ASC
 	END
 	--------------------------------------------------------------------------------
 	---Get MaGDs
-	DECLARE cs_GD CURSOR FOR SELECT MaGD, Gia, SoLuong, MaTK, TrangThai FROM #temp
+	DECLARE cs_GD CURSOR FOR SELECT MaGD, Gia, SoLuong, MaNDT, MaTK, TrangThai FROM #temp
 	OPEN cs_GD
-	FETCH NEXT FROM cs_GD INTO @maGD_B, @gia_B, @soLuong_B, @maTK_B, @trangThaiGD_B
+	FETCH NEXT FROM cs_GD INTO @maGD_B, @gia_B, @soLuong_B, @maNDT_B, @maTK_B, @trangThaiGD_B
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
 		--Join Transaction
@@ -117,9 +120,6 @@ BEGIN TRY
 		--Set var------------------------------------------------------
 		---Get Trang Thai cua A
 		SElECT @trangThaiGD_A=TrangThai FROM LENHDAT WHERE MaGD=@maGD_A
-		---Get NDT---
-		SELECT @maNDT_A=MaNDT FROM TAIKHOAN_NGANHANG WHERE MaTK=@maTK_A
-		SELECT @maNDT_B=MaNDT FROM TAIKHOAN_NGANHANG WHERE MaTK=@maTK_B
 		--------------
 		IF (@flag = 0)
 		BEGIN
@@ -240,7 +240,7 @@ BEGIN TRY
 		UPDATE TAIKHOAN_NGANHANG SET SoTien = @slhtTien WHERE MaTK = @maTK_B
 		-------------------------------------------------------------------------------
 		if(@ketThuc = 1) break
-		FETCH NEXT FROM cs_GD INTO @maGD_B, @gia_B, @soLuong_B, @maTK_B, @trangThaiGD_B
+		FETCH NEXT FROM cs_GD INTO @maGD_B, @gia_B, @soLuong_B, @maNDT_B, @maTK_B, @trangThaiGD_B
 	END
 	CLOSE cs_GD
 	DEALLOCATE cs_GD

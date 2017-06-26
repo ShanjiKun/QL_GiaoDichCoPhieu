@@ -47,7 +47,8 @@ namespace QL_GiaoDichCoPhieu
             string stockID = cbStock.Text;
             float price = (float)nudBuyPrice.Value;
             string accountID = cbAccountID.Text;
-            DatabaseManager.sharedInstance().createTransaction(transID, mode, buyCount, stockID, price, accountID);
+            bool isSuccess = DatabaseManager.sharedInstance().createTransaction(transID, mode, buyCount, stockID, price, accountID);
+            if (isSuccess) MessageBox.Show("Đặt lệnh thành công!");
             refreshUI();
         }
         void refreshUI()
