@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnXem = new System.Windows.Forms.Button();
+            this.btnSK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gctGD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +57,7 @@
             // 
             // dtpFromDate
             // 
+            this.dtpFromDate.CustomFormat = "yyyy-mm-dd";
             this.dtpFromDate.Location = new System.Drawing.Point(259, 48);
             this.dtpFromDate.Name = "dtpFromDate";
             this.dtpFromDate.Size = new System.Drawing.Size(140, 20);
@@ -63,6 +65,7 @@
             // 
             // dtpToDate
             // 
+            this.dtpToDate.CustomFormat = "yyyy-mm-dd";
             this.dtpToDate.Location = new System.Drawing.Point(43, 48);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Size = new System.Drawing.Size(140, 20);
@@ -96,11 +99,22 @@
             this.btnXem.UseVisualStyleBackColor = true;
             this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
+            // btnSK
+            // 
+            this.btnSK.Location = new System.Drawing.Point(512, 90);
+            this.btnSK.Name = "btnSK";
+            this.btnSK.Size = new System.Drawing.Size(75, 23);
+            this.btnSK.TabIndex = 11;
+            this.btnSK.Text = "Sao kê";
+            this.btnSK.UseVisualStyleBackColor = true;
+            this.btnSK.Click += new System.EventHandler(this.btnSK_Click);
+            // 
             // frmGD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 310);
+            this.ClientSize = new System.Drawing.Size(615, 310);
+            this.Controls.Add(this.btnSK);
             this.Controls.Add(this.btnXem);
             this.Controls.Add(this.gctGD);
             this.Controls.Add(this.dtpFromDate);
@@ -127,5 +141,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnXem;
+        private System.Windows.Forms.Button btnSK;
     }
 }

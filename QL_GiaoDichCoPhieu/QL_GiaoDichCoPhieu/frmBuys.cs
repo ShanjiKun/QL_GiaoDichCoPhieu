@@ -47,6 +47,15 @@ namespace QL_GiaoDichCoPhieu
             string stockID = cbStock.Text;
             float price = (float)nudBuyPrice.Value;
             string accountID = cbAccountID.Text;
+
+            bool isCheckPassword = DatabaseManager.sharedInstance().checkTransactonPassword(tbPasswordTransaction.Text);
+            if (!isCheckPassword)
+            {
+                MessageBox.Show("Mặt khẩu giao dịch không chính xác!");
+                tbPasswordTransaction.Text = "";
+                return;
+            }
+
             bool isSuccess = DatabaseManager.sharedInstance().createTransaction(transID, mode, buyCount, stockID, price, accountID);
             if (isSuccess) MessageBox.Show("Đặt lệnh thành công!");
             refreshUI();

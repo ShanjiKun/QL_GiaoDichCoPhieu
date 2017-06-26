@@ -103,8 +103,6 @@ BEGIN TRY
 
 		--Update tables
 		--Init var---
-		DECLARE @maNDT_A varchar(20)
-		DECLARE @maNDT_B varchar(20)
 
 		DECLARE @trangThai_A varchar(10)
 		DECLARE @trangThai_B varchar(10)
