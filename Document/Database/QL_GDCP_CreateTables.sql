@@ -100,6 +100,7 @@ CREATE TABLE LENHDAT(
 	SoLuong int NOT NULL,
 	MaCP varchar(10) NOT NULL FOREIGN KEY REFERENCES COPHIEU(MaCP),
 	Gia float NOT NULL,
+	MaNDT varchar(20) NOT NULL FOREIGN KEY REFERENCES NDT(MaNDT),
 	MaTK varchar(20) NOT NULL FOREIGN KEY REFERENCES TAIKHOAN_NGANHANG(MaTK),
 	TrangThai varchar(10) NOT NULL,
 	CONSTRAINT kt_LoaiLenh CHECK (LoaiLenh='M' or LoaiLenh='B'),
@@ -144,17 +145,21 @@ EXEC sp_addrolemember 'db_datareader', 'NDT'
 EXEC sp_addrolemember 'db_datawriter', 'NHANVIEN'
 EXEC sp_addrolemember 'db_datawriter', 'NDT'
 
-GRANT EXECUTE TO NHANVIEN
-GRANT EXECUTE TO NDT
 --Create ADMIN Role
 CREATE ROLE ADMIN
-EXEC SP_ADDLOGIN 'phucdien', '1234','QL_GDCP'
-EXEC SP_GRANTDBACCESS 'phucdien', 'nv1111'
-EXEC sp_addrolemember ADMIN, 'nv1111'
+EXEC SP_ADDLOGIN 'trongtuan', '1234','QL_GDCP'
+EXEC SP_GRANTDBACCESS 'trongtuan', 'trongtuan'
+EXEC sp_addrolemember ADMIN, 'trongtuan'
+
 --Server role
-EXEC sp_addsrvrolemember 'phucdien', 'SecurityAdmin'
-EXEC sp_addsrvrolemember 'phucdien', 'DBCreator'
-EXEC sp_addsrvrolemember 'phucdien', 'ProcessAdmin'
+EXEC sp_addsrvrolemember 'trongtuan', 'SecurityAdmin'
+EXEC sp_addsrvrolemember 'trongtuan', 'DBCreator'
+EXEC sp_addsrvrolemember 'trongtuan', 'ProcessAdmin'
+
+--Add Execute sp permission
+GRANT EXECUTE TO NHANVIEN
+GRANT EXECUTE TO NDT
+GRANT EXECUTE TO ADMIN
 
 --Craete NDT
 EXEC SP_ADDLOGIN 'linhdan', '1234','QL_GDCP'
@@ -164,6 +169,10 @@ EXEC sp_addrolemember NDT, '111111'
 EXEC SP_ADDLOGIN 'giabao', '1234','QL_GDCP'
 EXEC SP_GRANTDBACCESS 'giabao', '222222'
 EXEC sp_addrolemember NDT, '222222'
+
+EXEC SP_ADDLOGIN 'phucdien', '1234','QL_GDCP'
+EXEC SP_GRANTDBACCESS 'phucdien', 'nv1111'
+EXEC sp_addrolemember NHANVIEN, 'nv1111'
 --Create temp data
 INSERT INTO NDT VALUES('111111', N'Huỳnh Thị Linh Đan', '1995-01-01', '1234', 'HCM', '0163288176', '312233178', 'Nu', 'linhdan@gmail.com')
 INSERT INTO NDT VALUES('222222', N'Nguyễn Gia Bảo', '1995-01-01', '1234', 'HCM', '0163288177', '312233177', 'Nam', 'giabao@gmail.com')
