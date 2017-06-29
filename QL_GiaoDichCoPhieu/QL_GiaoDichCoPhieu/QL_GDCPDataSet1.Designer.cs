@@ -5256,8 +5256,6 @@ namespace QL_GiaoDichCoPhieu {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class SP_STTBACKUPDataTable : global::System.Data.TypedTableBase<SP_STTBACKUPRow> {
             
-            private global::System.Data.DataColumn columnmedia_set_id;
-            
             private global::System.Data.DataColumn columnposition;
             
             private global::System.Data.DataColumn columnbackup_start_date;
@@ -5293,14 +5291,6 @@ namespace QL_GiaoDichCoPhieu {
             protected SP_STTBACKUPDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn media_set_idColumn {
-                get {
-                    return this.columnmedia_set_id;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5356,10 +5346,9 @@ namespace QL_GiaoDichCoPhieu {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SP_STTBACKUPRow AddSP_STTBACKUPRow(int media_set_id, int position, System.DateTime backup_start_date) {
+            public SP_STTBACKUPRow AddSP_STTBACKUPRow(int position, System.DateTime backup_start_date) {
                 SP_STTBACKUPRow rowSP_STTBACKUPRow = ((SP_STTBACKUPRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        media_set_id,
                         position,
                         backup_start_date};
                 rowSP_STTBACKUPRow.ItemArray = columnValuesArray;
@@ -5384,7 +5373,6 @@ namespace QL_GiaoDichCoPhieu {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnmedia_set_id = base.Columns["media_set_id"];
                 this.columnposition = base.Columns["position"];
                 this.columnbackup_start_date = base.Columns["backup_start_date"];
             }
@@ -5392,13 +5380,10 @@ namespace QL_GiaoDichCoPhieu {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnmedia_set_id = new global::System.Data.DataColumn("media_set_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmedia_set_id);
                 this.columnposition = new global::System.Data.DataColumn("position", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnposition);
                 this.columnbackup_start_date = new global::System.Data.DataColumn("backup_start_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbackup_start_date);
-                this.columnmedia_set_id.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6906,17 +6891,6 @@ namespace QL_GiaoDichCoPhieu {
             internal SP_STTBACKUPRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableSP_STTBACKUP = ((SP_STTBACKUPDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int media_set_id {
-                get {
-                    return ((int)(this[this.tableSP_STTBACKUP.media_set_idColumn]));
-                }
-                set {
-                    this[this.tableSP_STTBACKUP.media_set_idColumn] = value;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12043,7 +12017,6 @@ SELECT MaTK, MaNDT, MaNH, SoTien FROM TAIKHOAN_NGANHANG WHERE (MaTK = @MaTK)";
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "SP_STTBACKUP";
-            tableMapping.ColumnMappings.Add("media_set_id", "media_set_id");
             tableMapping.ColumnMappings.Add("position", "position");
             tableMapping.ColumnMappings.Add("backup_start_date", "backup_start_date");
             this._adapter.TableMappings.Add(tableMapping);

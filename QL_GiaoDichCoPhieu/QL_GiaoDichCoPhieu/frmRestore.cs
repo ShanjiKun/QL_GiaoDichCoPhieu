@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QL_GiaoDichCoPhieu
 {
-    public partial class frmBackup : Form
+    public partial class frmRestore : Form
     {
-        public frmBackup()
+        public frmRestore()
         {
             InitializeComponent();
             this.sP_STTBACKUPTableAdapter.Connection.ConnectionString = Program.datasetConnectionString;
@@ -21,12 +21,7 @@ namespace QL_GiaoDichCoPhieu
 
         private void btnSL_Click(object sender, EventArgs e)
         {
-            string sql = "BACKUP DATABASE QL_GDCP TO Bk_GDCP";
-            if(Connection.ExecQueryString(sql) > 0)
-                MessageBox.Show("Backup thành công !");
-            else
-                MessageBox.Show("Thất bại !");
+            
         }
-
     }
 }

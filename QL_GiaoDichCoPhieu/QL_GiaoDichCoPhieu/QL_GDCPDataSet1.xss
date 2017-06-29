@@ -19,7 +19,7 @@
     <Shape ID="DesignTable:SP_SDCP" ZOrder="13" X="1818" Y="70" Height="172" Width="195" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:SP_LD" ZOrder="4" X="2083" Y="70" Height="267" Width="212" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="216" />
     <Shape ID="DesignTable:SP_LK" ZOrder="3" X="2365" Y="70" Height="191" Width="212" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
-    <Shape ID="DesignTable:SP_STTBACKUP" ZOrder="1" X="2647" Y="70" Height="134" Width="234" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:SP_STTBACKUP" ZOrder="1" X="2647" Y="70" Height="115" Width="234" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK__LENHDAT__MaCP__1BFD2C07" ZOrder="12" LineWidth="11">

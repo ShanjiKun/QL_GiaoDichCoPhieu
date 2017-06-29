@@ -1,6 +1,6 @@
 ﻿namespace QL_GiaoDichCoPhieu
 {
-    partial class frmBackup
+    partial class frmRestore
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnSL = new System.Windows.Forms.Button();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.sP_STTBACKUPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qL_GDCPDataSet = new QL_GiaoDichCoPhieu.QL_GDCPDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colposition = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colbackup_start_date = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnSL = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.sP_STTBACKUPTableAdapter = new QL_GiaoDichCoPhieu.QL_GDCPDataSetTableAdapters.SP_STTBACKUPTableAdapter();
             this.tableAdapterManager = new QL_GiaoDichCoPhieu.QL_GDCPDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -45,25 +45,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label3
+            // btnSL
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(172, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 24);
-            this.label3.TabIndex = 53;
-            this.label3.Text = "Sao Lưu Dữ Liệu";
+            this.btnSL.Location = new System.Drawing.Point(376, 271);
+            this.btnSL.Name = "btnSL";
+            this.btnSL.Size = new System.Drawing.Size(75, 23);
+            this.btnSL.TabIndex = 58;
+            this.btnSL.Text = "Phục hồi";
+            this.btnSL.UseVisualStyleBackColor = true;
+            this.btnSL.Click += new System.EventHandler(this.btnSL_Click);
             // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.sP_STTBACKUPBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(49, 73);
+            this.gridControl1.Location = new System.Drawing.Point(50, 69);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(401, 185);
-            this.gridControl1.TabIndex = 54;
+            this.gridControl1.TabIndex = 57;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -100,15 +99,16 @@
             this.colbackup_start_date.Visible = true;
             this.colbackup_start_date.VisibleIndex = 1;
             // 
-            // btnSL
+            // label3
             // 
-            this.btnSL.Location = new System.Drawing.Point(375, 275);
-            this.btnSL.Name = "btnSL";
-            this.btnSL.Size = new System.Drawing.Size(75, 23);
-            this.btnSL.TabIndex = 55;
-            this.btnSL.Text = "Sao lưu";
-            this.btnSL.UseVisualStyleBackColor = true;
-            this.btnSL.Click += new System.EventHandler(this.btnSL_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(173, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(174, 24);
+            this.label3.TabIndex = 56;
+            this.label3.Text = "Phục Hồi Dữ Liệu";
             // 
             // sP_STTBACKUPTableAdapter
             // 
@@ -129,7 +129,7 @@
             this.tableAdapterManager.TAIKHOAN_NGANHANGTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QL_GiaoDichCoPhieu.QL_GDCPDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // frmBackup
+            // frmRestore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -137,9 +137,8 @@
             this.Controls.Add(this.btnSL);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.label3);
-            this.Name = "frmBackup";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmBackup";
+            this.Name = "frmRestore";
+            this.Text = "frmRestore";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_STTBACKUPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_GDCPDataSet)).EndInit();
@@ -151,12 +150,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnSL;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private System.Windows.Forms.Button btnSL;
         private DevExpress.XtraGrid.Columns.GridColumn colposition;
         private DevExpress.XtraGrid.Columns.GridColumn colbackup_start_date;
+        private System.Windows.Forms.Label label3;
         private QL_GDCPDataSet qL_GDCPDataSet;
         private System.Windows.Forms.BindingSource sP_STTBACKUPBindingSource;
         private QL_GDCPDataSetTableAdapters.SP_STTBACKUPTableAdapter sP_STTBACKUPTableAdapter;
