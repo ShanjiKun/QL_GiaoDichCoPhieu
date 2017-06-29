@@ -81,7 +81,7 @@ namespace QL_GiaoDichCoPhieu
 
                 Program.UserName = sdr.GetString(0);
                 Program.Name = sdr.GetString(2);
-
+                Program.Id = txtUserName.Text.ToString();
                 frmMain frmMain = new frmMain();
                 this.Hide();
                 frmMain.Show();

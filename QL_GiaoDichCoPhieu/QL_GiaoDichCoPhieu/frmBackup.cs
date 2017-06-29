@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QL_GiaoDichCoPhieu
 {
-    public partial class frmCreateAccount : Form
+    public partial class frmBackup : Form
     {
-        public frmCreateAccount()
+        public frmBackup()
         {
             InitializeComponent();
         }

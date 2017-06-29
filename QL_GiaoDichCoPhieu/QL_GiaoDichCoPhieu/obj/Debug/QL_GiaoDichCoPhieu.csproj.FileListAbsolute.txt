@@ -425,12 +425,10 @@ C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\o
 C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.Properties.Resources.resources
 C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.csproj.GenerateResource.Cache
 C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.exe.licenses
-C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmBalanceStock.resources
 C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmLK.resources
 C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmGD.resources
 C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmBuys.resources
 C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmSell.resources
-C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmCreateAccount.resources
 C:\Users\TienMinh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\bin\Debug\QL_GiaoDichCoPhieu.exe.config
 C:\Users\TienMinh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\bin\Debug\QL_GiaoDichCoPhieu.exe
 C:\Users\TienMinh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\bin\Debug\QL_GiaoDichCoPhieu.pdb
@@ -880,3 +878,7 @@ C:\Users\VinhHuynh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPh
 C:\Users\VinhHuynh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmChangePassword.resources
 C:\Users\VinhHuynh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmUpdateTKNDT.resources
 C:\Users\VinhHuynh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.Report.frmSKDSLD.resources
+C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmNhanVien.resources
+C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.Report.frmSDCP.resources
+C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmChangePassAD.resources
+C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmBackup.resources
