@@ -84,12 +84,9 @@ namespace QL_GiaoDichCoPhieu
 
         public static bool addDB(addNDT ndt)
         {
-            string connectionString = "Data Source=" + Program.serverName +"; Initial Catalog=QL_GDCP"
-                        + ";Integrated Security=SSPI";
-            SqlConnection cnn = new SqlConnection(connectionString);
-            string SQL = "SP_CREATENDT";
+            SqlConnection cnn = new SqlConnection(Program.datasetConnectionString);
 
-            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            SqlCommand cmd = new SqlCommand("SP_CREATENDT", cnn);
 
             // truyền tham số vào SqlCommand
             cmd.Parameters.AddWithValue("@MaNDT", ndt.maNDT);

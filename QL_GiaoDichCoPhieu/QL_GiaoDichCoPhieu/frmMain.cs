@@ -60,14 +60,7 @@ namespace QL_GiaoDichCoPhieu
 
         private void btnBalanceStock_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!CheckExistForm("frmBalanceStock"))
-            {
-                frmBalanceStock frmBalanceStock = new frmBalanceStock();
-                frmBalanceStock.MdiParent = this;
-                frmBalanceStock.Show();
-            }
-            else
-                ActiveChildForm("frmBalanceStock");
+
         }
 
         private void btnGD_ItemClick(object sender, ItemClickEventArgs e)
@@ -120,14 +113,14 @@ namespace QL_GiaoDichCoPhieu
 
         private void btnCreateAccount_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!CheckExistForm("frmCreateAccount"))
+            if (!CheckExistForm("frmNhanVien"))
             {
-                frmCreateAccount frmCreateAccount = new frmCreateAccount();
-                frmCreateAccount.MdiParent = this;
-                frmCreateAccount.Show();
+                frmNhanVien frmNhanVien = new frmNhanVien();
+                frmNhanVien.MdiParent = this;
+                frmNhanVien.Show();
             }
             else
-                ActiveChildForm("frmCreateAccount");
+                ActiveChildForm("frmNhanVien");
         }
 
         private void btnLogOut_ItemClick(object sender, ItemClickEventArgs e)
@@ -139,26 +132,14 @@ namespace QL_GiaoDichCoPhieu
 
         private void tbnCreateNDT_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!CheckExistForm("frmCreateAccountNDT"))
-            {
-                frmCreateAccountNDT frmCreateAccountNDT = new frmCreateAccountNDT();
-                frmCreateAccountNDT.MdiParent = this;
-                frmCreateAccountNDT.Show();
-            }
-            else
-                ActiveChildForm("frmCreateAccountNDT");
+            frmCreateAccountNDT frmCreateAccountNDT = new frmCreateAccountNDT();
+            frmCreateAccountNDT.ShowDialog();
         }
 
         private void btnTKNDT_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!CheckExistForm("frmUpdateTKNDT"))
-            {
-                frmUpdateTKNDT frmUpdateTKNDT = new frmUpdateTKNDT();
-                frmUpdateTKNDT.MdiParent = this;
-                frmUpdateTKNDT.Show();
-            }
-            else
-                ActiveChildForm("frmUpdateTKNDT");
+            frmUpdateTKNDT frmUpdateTKNDT = new frmUpdateTKNDT();
+            frmUpdateTKNDT.ShowDialog();
         }
 
         private void btnSKDSLD_ItemClick(object sender, ItemClickEventArgs e)
@@ -184,15 +165,24 @@ namespace QL_GiaoDichCoPhieu
                 btnCreateAccount.Enabled = false;
             }else if(Program.Name == "NDT")
             {
-                ribbonPage5.Visible = false;
+                btnCreateAccount.Enabled = false;
+                tbnCreateNDT.Enabled = false;
+                btnTKNDT.Enabled = false;
             }
 
         }
 
         private void btnChangePassword_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword();
-            frm.ShowDialog();
+            if(Program.Name == "NDT")
+            {
+                frmChangePassword frm = new frmChangePassword();
+                frm.ShowDialog();
+            }else
+            {
+                frmChangePassAD frm = new frmChangePassAD();
+                frm.ShowDialog();
+            }
         }
     }
 }

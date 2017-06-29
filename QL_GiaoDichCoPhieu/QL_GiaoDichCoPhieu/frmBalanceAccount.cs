@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QL_GiaoDichCoPhieu.Report;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;using System.Data.SqlClient;
@@ -21,7 +22,10 @@ namespace QL_GiaoDichCoPhieu
         }
 
         private void frmBalanceAccount_Load(object sender, EventArgs e)
-        {
+        {
+            this.sP_SDCPTableAdapter.Connection.ConnectionString = Program.datasetConnectionString;
+            this.sP_SDCPTableAdapter.Fill(this.qL_GDCPDataSet.SP_SDCP, Program.UserName);
+
             string sql = "exec SP_GETACCNDT '"+ Program.UserName +"'";
             dtAccount = Connection.getData(sql);
             cmbAccount.DataSource = dtAccount;
@@ -44,7 +48,11 @@ namespace QL_GiaoDichCoPhieu
         }
 
         private void cmbAccount_SelectedValueChanged(object sender, EventArgs e)
-        {
+        {
+
+            if (cmbAccount.SelectedValue == null)
+                return;
+
             int index = cmbAccount.SelectedIndex;
             lblNameAccount.Text = dtAccount.Rows[index][3].ToString();
             lblBalanceAccount.Text = dtAccount.Rows[index][1].ToString();
@@ -64,5 +72,12 @@ namespace QL_GiaoDichCoPhieu
         {
 
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            frmSDCP frm = new frmSDCP();
+            frm.ShowDialog();
+        }
+
     }
 }

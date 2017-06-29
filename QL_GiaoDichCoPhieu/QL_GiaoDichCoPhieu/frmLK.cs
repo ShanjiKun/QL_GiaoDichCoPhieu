@@ -39,29 +39,22 @@ namespace QL_GiaoDichCoPhieu
         private void frmLK_Load(object sender, EventArgs e)
 
         {
-
-            string sql = "select * from LENHKHOP";
-            DataTable dtLK = Connection.getData(sql);
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dtLK;
-            gctLK.DataSource = bs;
-
+            this.sP_LKTableAdapter.Connection.ConnectionString = Program.datasetConnectionString;
+            this.sP_LKTableAdapter.Fill(this.qL_GDCPDataSet.SP_LK, dtpToDate.Value, dtpFromDate.Value);
         }
 
         private void btnXem_Click(object sender, EventArgs e)
         {
-            string toDate = dtpToDate.Value.ToString();
-            string fromDate = dtpFromDate.Value.ToString();
+            this.sP_LKTableAdapter.Connection.ConnectionString = Program.datasetConnectionString;
+            this.sP_LKTableAdapter.Fill(this.qL_GDCPDataSet.SP_LK, dtpToDate.Value, dtpFromDate.Value);
+        }
 
-            string sql = "select * from LENHKHOP where NgayGD >= '" + fromDate + "' and NgayGD <= '" + toDate + "'";
-
-            DataTable dtGD = Connection.getData(sql);
-
-            BindingSource bs = new BindingSource();
-
-            bs.DataSource = dtGD;
-
-            gctLK.DataSource = bs;
+        private void btnSK_Click(object sender, EventArgs e)
+        {
+            string toDate = dtpFromDate.Value.ToString();
+            string fromDate = dtpToDate.Value.ToString();
+            Report.frmSKDSLD frm = new Report.frmSKDSLD(fromDate, toDate);
+            frm.ShowDialog();
         }
     }
 
