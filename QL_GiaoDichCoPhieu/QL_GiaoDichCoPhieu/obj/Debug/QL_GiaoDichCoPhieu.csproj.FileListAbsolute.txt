@@ -885,3 +885,4 @@ C:\Users\VinhHuynh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPh
 C:\Users\VinhHuynh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmNhanVien.resources
 C:\Users\VinhHuynh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.Report.frmSDCP.resources
 C:\Users\Tuan\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmRestore.resources
+C:\Users\VinhHuynh\Desktop\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\QL_GiaoDichCoPhieu\obj\Debug\QL_GiaoDichCoPhieu.frmRestore.resources

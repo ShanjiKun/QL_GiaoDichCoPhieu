@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QL_GiaoDichCoPhieu.Models;
 
 namespace QL_GiaoDichCoPhieu
 {
@@ -85,6 +86,8 @@ namespace QL_GiaoDichCoPhieu
                 frmMain frmMain = new frmMain();
                 this.Hide();
                 frmMain.Show();
+                //Add connectring
+                DatabaseManager.sharedInstance().setConnectionString(cnn);
             }
         }
 

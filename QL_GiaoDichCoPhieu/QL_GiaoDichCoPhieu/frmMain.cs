@@ -192,5 +192,11 @@ namespace QL_GiaoDichCoPhieu
             frmBackup frm = new frmBackup();
             frm.ShowDialog();
         }
+
+        private void onRestoreTapped(object sender, ItemClickEventArgs e)
+        {
+            frmRestore frm = new frmRestore();
+            frm.ShowDialog();
+        }
     }
 }

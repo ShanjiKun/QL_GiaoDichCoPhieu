@@ -39,6 +39,7 @@
             this.btnSL = new System.Windows.Forms.Button();
             this.sP_STTBACKUPTableAdapter = new QL_GiaoDichCoPhieu.QL_GDCPDataSetTableAdapters.SP_STTBACKUPTableAdapter();
             this.tableAdapterManager = new QL_GiaoDichCoPhieu.QL_GDCPDataSetTableAdapters.TableAdapterManager();
+            this.checkBoxReset = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_STTBACKUPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_GDCPDataSet)).BeginInit();
@@ -129,11 +130,22 @@
             this.tableAdapterManager.TAIKHOAN_NGANHANGTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QL_GiaoDichCoPhieu.QL_GDCPDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // checkBoxReset
+            // 
+            this.checkBoxReset.AutoSize = true;
+            this.checkBoxReset.Location = new System.Drawing.Point(176, 280);
+            this.checkBoxReset.Name = "checkBoxReset";
+            this.checkBoxReset.Size = new System.Drawing.Size(113, 17);
+            this.checkBoxReset.TabIndex = 56;
+            this.checkBoxReset.Text = "Reset File Backup";
+            this.checkBoxReset.UseVisualStyleBackColor = true;
+            // 
             // frmBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 316);
+            this.Controls.Add(this.checkBoxReset);
             this.Controls.Add(this.btnSL);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.label3);
@@ -161,5 +173,6 @@
         private System.Windows.Forms.BindingSource sP_STTBACKUPBindingSource;
         private QL_GDCPDataSetTableAdapters.SP_STTBACKUPTableAdapter sP_STTBACKUPTableAdapter;
         private QL_GDCPDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.CheckBox checkBoxReset;
     }
 }

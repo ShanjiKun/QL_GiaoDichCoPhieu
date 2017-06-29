@@ -147,6 +147,8 @@ EXEC sp_addrolemember 'db_datawriter', 'NDT'
 
 --Create ADMIN Role
 CREATE ROLE ADMIN
+EXEC sp_addrolemember 'db_backupoperator', 'ADMIN'
+
 EXEC SP_ADDLOGIN 'trongtuan', '1234','QL_GDCP'
 EXEC SP_GRANTDBACCESS 'trongtuan', 'trongtuan'
 EXEC sp_addrolemember ADMIN, 'trongtuan'

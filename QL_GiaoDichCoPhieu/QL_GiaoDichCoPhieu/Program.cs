@@ -19,6 +19,7 @@ namespace QL_GiaoDichCoPhieu
             Application.Run(new frmLogin());
         }
 
+        public static int media_id = 9;
         public static string Id;
         public static string UserName;
         public static string Name;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QL_GiaoDichCoPhieu.Models;
 
 namespace QL_GiaoDichCoPhieu
 {
@@ -16,12 +18,24 @@ namespace QL_GiaoDichCoPhieu
         {
             InitializeComponent();
             this.sP_STTBACKUPTableAdapter.Connection.ConnectionString = Program.datasetConnectionString;
-            this.sP_STTBACKUPTableAdapter.Fill(this.qL_GDCPDataSet.SP_STTBACKUP, 1);
+            this.sP_STTBACKUPTableAdapter.Fill(this.qL_GDCPDataSet.SP_STTBACKUP, Program.media_id);
         }
 
         private void btnSL_Click(object sender, EventArgs e)
         {
-            
+            int[] selRows = ((GridView)gridControl1.MainView).GetSelectedRows();
+            DataRowView selRow = (DataRowView)(((GridView)gridControl1.MainView).GetRow(selRows[0]));
+            string pos = selRow["position"].ToString();
+
+            bool isSuccess = DatabaseManager.sharedInstance().restoreDB(pos);
+            if (isSuccess)
+            {
+                MessageBox.Show("Khôi phục về phiên bản "+pos+" thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Khôi phục thất bại!");
+            }
         }
     }
 }

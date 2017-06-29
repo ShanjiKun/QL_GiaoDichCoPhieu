@@ -31,9 +31,8 @@ namespace QL_GiaoDichCoPhieu.Models
             //------------
             if (connectionString == null)
             {
-                string cnn = "Data Source="+Program.serverName+";Initial Catalog=QL_GDCP"
-                        + ";User ID=linhdan" + ";password=1234";
-               setConnectionString(cnn);
+                MessageBox.Show("Chua tao connect string!");
+                return false;
             }
 
             try
@@ -164,10 +163,10 @@ namespace QL_GiaoDichCoPhieu.Models
         //---Insert----
         public bool createTransaction(string transType, string mode, int buyCount, string stockID, float price, string accountID)
         {
-            bool isSuccess;
+            bool isSuccess = true;
             string userID = Program.UserName;
             string query = "EXEC SP_TaoGDKhopLenh '" + transType + "', " + price + ", '" + stockID + "', " + buyCount + ", '" + userID + "', '" + accountID + "'";
-            isSuccess = execute(query, (SqlDataReader reader) => {
+            execute(query, (SqlDataReader reader) => {
 
                 if (reader.Read())
                 {
@@ -176,6 +175,45 @@ namespace QL_GiaoDichCoPhieu.Models
                 }
                 return 1;
             });
+            return isSuccess;
+        }
+
+        public bool backupDB(bool isReset)
+        {
+            bool isSuccess = true;
+            string query = "BACKUP DATABASE QL_GDCP TO Bk_GDCP SELECT @@ERROR";
+            if (isReset)
+            {
+                query = "BACKUP DATABASE QL_GDCP TO Bk_GDCP WITH INIT SELECT @@ERROR";
+            }
+            execute(query, (SqlDataReader reader) => {
+
+                if (reader.Read())
+                {
+                    if (Convert.ToInt32(reader[0]) != 0) isSuccess = false;    
+                }
+                return 1;
+            });
+
+            return isSuccess;
+        }
+
+        public bool restoreDB(string position)
+        {
+            bool isSuccess = true;
+            string query = "USE MASTER "+
+                            "ALTER DATABASE QL_GDCP "+
+                            "SET SINGLE_USER " +
+                            "WITH ROLLBACK IMMEDIATE " +
+                            "RESTORE DATABASE QL_GDCP " +
+                            "FROM Bk_GDCP " +
+                            "WITH REPLACE, FILE = "+position+" "+
+                            "ALTER DATABASE QL_GDCP " +
+                            "SET MULTI_USER";
+            isSuccess = execute(query, (SqlDataReader reader) => {
+                return 1;
+            });
+
             return isSuccess;
         }
     }
