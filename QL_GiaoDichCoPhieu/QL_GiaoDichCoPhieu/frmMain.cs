@@ -148,5 +148,51 @@ namespace QL_GiaoDichCoPhieu
             else
                 ActiveChildForm("frmCreateAccountNDT");
         }
+
+        private void btnTKNDT_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!CheckExistForm("frmUpdateTKNDT"))
+            {
+                frmUpdateTKNDT frmUpdateTKNDT = new frmUpdateTKNDT();
+                frmUpdateTKNDT.MdiParent = this;
+                frmUpdateTKNDT.Show();
+            }
+            else
+                ActiveChildForm("frmUpdateTKNDT");
+        }
+
+        private void btnSKDSLD_ItemClick(object sender, ItemClickEventArgs e)
+        {
+          
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            if(Program.Name == "ADMIN")
+            {
+                ribbonPage2.Visible = false;
+                ribbonPage3.Visible = false;
+                ribbonPage4.Visible = false;
+                tbnCreateNDT.Enabled = false;
+                btnTKNDT.Enabled = false;
+            }else if(Program.Name == "NHANVIEN")
+            {
+                ribbonPage2.Visible = false;
+                ribbonPage3.Visible = false;
+                ribbonPage4.Visible = false;
+                btnChangePassword.Enabled = false;
+                btnCreateAccount.Enabled = false;
+            }else if(Program.Name == "NDT")
+            {
+                ribbonPage5.Visible = false;
+            }
+
+        }
+
+        private void btnChangePassword_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmChangePassword frm = new frmChangePassword();
+            frm.ShowDialog();
+        }
     }
 }

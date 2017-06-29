@@ -25,7 +25,7 @@ namespace QL_GiaoDichCoPhieu.Models
             return instance;
         }
         //----Private methods----
-        private void getData(String query, Func<SqlDataReader, int> onSuccess)
+        private bool execute(String query, Func<SqlDataReader, int> onSuccess)
         {
             //----Temp----
             //------------
@@ -41,17 +41,18 @@ namespace QL_GiaoDichCoPhieu.Models
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand command = new SqlCommand(query, conn);
-                command.Parameters.AddWithValue("@zip", "india");
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     onSuccess(reader);
                 }
                 conn.Close();
+                return true;
             }
             catch (SqlException e)
             {
                 MessageBox.Show(e.Number.ToString());
+                return false;
             }
         }
         //----Public methods----
@@ -60,14 +61,13 @@ namespace QL_GiaoDichCoPhieu.Models
         {
             this.connectionString = _connectionString;
         }
-
         //----Get----
         public List<BankAccount> getListBankAccount()
         {
             List<BankAccount> list = new List<BankAccount>();
 
-            String query = "SELECT * FROM TAIKHOAN_NGANHANG";
-            getData(query, (SqlDataReader reader) => {
+            String query = "SELECT * FROM TAIKHOAN_NGANHANG WHERE MaNDT = '"+Program.UserName+"'";
+            execute(query, (SqlDataReader reader) => {
 
                 while (reader.Read())
                 {
@@ -87,7 +87,7 @@ namespace QL_GiaoDichCoPhieu.Models
             List<String> list = new List<String>();
 
             String query = "SELECT nh.TenNH, tk.SoTien FROM NGANHANG nh inner join(SELECT MaNH, SoTien FROM TAIKHOAN_NGANHANG WHERE MaTK = '"+accountID+"') tk on tk.MaNH = nh.MaNH";
-            getData(query, (SqlDataReader reader) => {
+            execute(query, (SqlDataReader reader) => {
 
                 while (reader.Read())
                 {
@@ -103,7 +103,7 @@ namespace QL_GiaoDichCoPhieu.Models
             List<ComboBoxItem> list = new List<ComboBoxItem>();
 
             String query = "SELECT MaCP FROM COPHIEU";
-            getData(query, (SqlDataReader reader) => {
+            execute(query, (SqlDataReader reader) => {
 
                 while (reader.Read())
                 {
@@ -119,7 +119,7 @@ namespace QL_GiaoDichCoPhieu.Models
             List<String> list = new List<String>();
 
             String query = "SELECT GiaTran, GiaSan, GiaTC FROM LICHSUGIA WHERE MaCP = '"+stockID+"'";
-            getData(query, (SqlDataReader reader) => {
+            execute(query, (SqlDataReader reader) => {
 
                 while (reader.Read())
                 {
@@ -130,6 +130,52 @@ namespace QL_GiaoDichCoPhieu.Models
                 return 1;
             });
             return list;
+        }
+
+        public int getStockBalance(string stockID)
+        {
+            string userID = Program.UserName;
+            int stockBalance = 0;
+            String query = "SELECT SoLuong FROM SOHUU WHERE MaNDT = '"+ userID + "' AND MaCP = '" + stockID + "'";
+            execute(query, (SqlDataReader reader) => {
+
+                while (reader.Read())
+                {
+                   stockBalance = reader.GetInt32(0);
+                }
+                return 1;
+            });
+            return stockBalance;
+        }
+
+        public bool checkTransactonPassword(string password)
+        {
+            string userID = Program.UserName;
+            bool isCorrect = false;
+            string query = "SELECT 1 FROM NDT WHERE MaNDT = '" + userID + "' AND MKGD = '" + password + "'";
+            execute(query, (SqlDataReader reader) => {
+
+                if (reader.Read()) isCorrect = true;
+                return 1;
+            });
+            return isCorrect;
+        }
+        //---Insert----
+        public bool createTransaction(string transType, string mode, int buyCount, string stockID, float price, string accountID)
+        {
+            bool isSuccess;
+            string userID = Program.UserName;
+            string query = "EXEC SP_TaoGDKhopLenh '" + transType+"', "+price+", '"+stockID+"', "+buyCount+", '"+userID+"', '"+accountID+"'";
+            isSuccess = execute(query, (SqlDataReader reader) => {
+
+                if (reader.Read())
+                {
+                    MessageBox.Show(reader[0] + " " + reader[1] + " " + reader[2]);
+                    isSuccess = false;
+                }
+                return 1;
+            });
+            return isSuccess;
         }
     }
 }
