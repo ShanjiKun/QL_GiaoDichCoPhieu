@@ -44,6 +44,7 @@
             this.tbnCreateNDT = new DevExpress.XtraBars.BarButtonItem();
             this.btnTKNDT = new DevExpress.XtraBars.BarButtonItem();
             this.btnSKDSLD = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBackup = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -80,9 +81,10 @@
             this.btnChangePassword,
             this.tbnCreateNDT,
             this.btnTKNDT,
-            this.btnSKDSLD});
+            this.btnSKDSLD,
+            this.btnBackup});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 15;
+            this.ribbon.MaxItemId = 16;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -201,6 +203,14 @@
             this.btnSKDSLD.Name = "btnSKDSLD";
             this.btnSKDSLD.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSKDSLD_ItemClick);
             // 
+            // btnBackup
+            // 
+            this.btnBackup.Caption = "Backup - Restore";
+            this.btnBackup.Id = 15;
+            this.btnBackup.LargeGlyph = global::QL_GiaoDichCoPhieu.Properties.Resources.icons8_data_backup;
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackup_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -211,6 +221,7 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnLogOut);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnBackup);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // ribbonPage2
@@ -340,5 +351,6 @@
         private DevExpress.XtraBars.BarButtonItem tbnCreateNDT;
         private DevExpress.XtraBars.BarButtonItem btnTKNDT;
         private DevExpress.XtraBars.BarButtonItem btnSKDSLD;
+        private DevExpress.XtraBars.BarButtonItem btnBackup;
     }
 }

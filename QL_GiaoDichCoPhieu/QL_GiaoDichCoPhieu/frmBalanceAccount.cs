@@ -61,9 +61,14 @@ namespace QL_GiaoDichCoPhieu
             SqlDataReader sdr = Connection.getAvailableMoney(cmbAccount.SelectedValue.ToString());
             if (sdr.Read())
             {
-                int total = Convert.ToInt32(dtAccount.Rows[0][1]);
-                int allow = Convert.ToInt32(sdr[0]);
-                lblAllowBalance.Text = (total - allow).ToString();
+                string sql = "select SoTien from TAIKHOAN_NGANHANG where MaTK = '"+cmbAccount.SelectedValue+"'";
+                SqlDataReader reader = Connection.ExecSqlDataReader(sql);
+                if (reader.Read())
+                {
+                    int total = Convert.ToInt32(reader[0]);
+                    int allow = Convert.ToInt32(sdr[0]);
+                    lblAllowBalance.Text = (total - allow).ToString();
+                }
             }
             else lblAllowBalance.Text = dtAccount.Rows[index][1].ToString();
         }

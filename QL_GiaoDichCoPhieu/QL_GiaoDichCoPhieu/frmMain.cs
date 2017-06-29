@@ -163,11 +163,13 @@ namespace QL_GiaoDichCoPhieu
                 ribbonPage4.Visible = false;
                 btnChangePassword.Enabled = false;
                 btnCreateAccount.Enabled = false;
+                btnBackup.Enabled = false;
             }else if(Program.Name == "NDT")
             {
                 btnCreateAccount.Enabled = false;
                 tbnCreateNDT.Enabled = false;
                 btnTKNDT.Enabled = false;
+                btnBackup.Enabled = false;
             }
 
         }
@@ -183,6 +185,12 @@ namespace QL_GiaoDichCoPhieu
                 frmChangePassAD frm = new frmChangePassAD();
                 frm.ShowDialog();
             }
+        }
+
+        private void btnBackup_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmBackup frm = new frmBackup();
+            frm.ShowDialog();
         }
     }
 }

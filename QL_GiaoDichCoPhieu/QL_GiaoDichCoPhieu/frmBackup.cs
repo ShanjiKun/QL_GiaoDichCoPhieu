@@ -16,5 +16,14 @@ namespace QL_GiaoDichCoPhieu
         {
             InitializeComponent();
         }
+
+        private void btnSL_Click(object sender, EventArgs e)
+        {
+            string sql = "BACKUP DATABASE QL_GDCP TO Bk_GDCP";
+            if(Connection.ExecQueryString(sql) > 0)
+                MessageBox.Show("Backup thành công !");
+            else
+                MessageBox.Show("Thất bại !");
+        }
     }
 }

@@ -47,7 +47,7 @@ namespace QL_GiaoDichCoPhieu
                         this.Close();
                     }               
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Mật khẩu đăng nhập không đúng");
                 }

@@ -337,6 +337,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icons8-bank_cards.png" />
+    <None Include="Resources\icons8-data_backup.png" />
     <None Include="Resources\teacher-2.png" />
     <None Include="Resources\icons8-print.png" />
   </ItemGroup>
