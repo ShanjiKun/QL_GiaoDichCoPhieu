@@ -45,6 +45,7 @@
             this.btnTKNDT = new DevExpress.XtraBars.BarButtonItem();
             this.btnSKDSLD = new DevExpress.XtraBars.BarButtonItem();
             this.btnBackup = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -59,7 +60,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -207,11 +207,19 @@
             // 
             // btnBackup
             // 
-            this.btnBackup.Caption = "Backup - Restore";
+            this.btnBackup.Caption = "Backup";
             this.btnBackup.Id = 15;
             this.btnBackup.LargeGlyph = global::QL_GiaoDichCoPhieu.Properties.Resources.icons8_data_backup;
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackup_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Restore";
+            this.barButtonItem1.Id = 16;
+            this.barButtonItem1.LargeGlyph = global::QL_GiaoDichCoPhieu.Properties.Resources.icons8_restore_page_filled;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.onRestoreTapped);
             // 
             // ribbonPage1
             // 
@@ -299,13 +307,6 @@
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Restore";
-            this.barButtonItem1.Id = 16;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.onRestoreTapped);
             // 
             // frmMain
             // 

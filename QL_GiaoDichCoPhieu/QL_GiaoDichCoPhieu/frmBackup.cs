@@ -30,6 +30,7 @@ namespace QL_GiaoDichCoPhieu
                 MessageBox.Show("Backup thành công !");
                 this.sP_STTBACKUPTableAdapter.Connection.ConnectionString = Program.datasetConnectionString;
                 this.sP_STTBACKUPTableAdapter.Fill(this.qL_GDCPDataSet.SP_STTBACKUP, Program.media_id);
+                //this.Close();
             }
             else
                 MessageBox.Show("Thất bại !");

@@ -156,7 +156,9 @@ namespace QL_GiaoDichCoPhieu
                 ribbonPage4.Visible = false;
                 tbnCreateNDT.Enabled = false;
                 btnTKNDT.Enabled = false;
-            }else if(Program.Name == "NHANVIEN")
+                
+            }
+            else if(Program.Name == "NHANVIEN")
             {
                 ribbonPage2.Visible = false;
                 ribbonPage3.Visible = false;
@@ -164,12 +166,15 @@ namespace QL_GiaoDichCoPhieu
                 btnChangePassword.Enabled = false;
                 btnCreateAccount.Enabled = false;
                 btnBackup.Enabled = false;
-            }else if(Program.Name == "NDT")
+                barButtonItem1.Enabled = false;
+            }
+            else if(Program.Name == "NDT")
             {
                 btnCreateAccount.Enabled = false;
                 tbnCreateNDT.Enabled = false;
                 btnTKNDT.Enabled = false;
                 btnBackup.Enabled = false;
+                barButtonItem1.Enabled = false;
             }
 
         }

@@ -27,14 +27,18 @@ namespace QL_GiaoDichCoPhieu
             DataRowView selRow = (DataRowView)(((GridView)gridControl1.MainView).GetRow(selRows[0]));
             string pos = selRow["position"].ToString();
 
+            btnSL.Enabled = false;
+
             bool isSuccess = DatabaseManager.sharedInstance().restoreDB(pos);
             if (isSuccess)
             {
                 MessageBox.Show("Khôi phục về phiên bản "+pos+" thành công!");
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Khôi phục thất bại!");
+                btnSL.Enabled = true;
             }
         }
     }
