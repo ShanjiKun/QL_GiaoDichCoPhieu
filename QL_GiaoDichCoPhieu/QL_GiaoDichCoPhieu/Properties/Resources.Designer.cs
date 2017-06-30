@@ -143,6 +143,16 @@ namespace QL_GiaoDichCoPhieu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_data_backup {
+            get {
+                object obj = ResourceManager.GetObject("icons8-data_backup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_door_opened {
             get {
                 object obj = ResourceManager.GetObject("icons8-door_opened", resourceCulture);
@@ -176,6 +186,16 @@ namespace QL_GiaoDichCoPhieu.Properties {
         internal static System.Drawing.Bitmap icons8_print {
             get {
                 object obj = ResourceManager.GetObject("icons8-print", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_page_filled {
+            get {
+                object obj = ResourceManager.GetObject("icons8-restore_page_filled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

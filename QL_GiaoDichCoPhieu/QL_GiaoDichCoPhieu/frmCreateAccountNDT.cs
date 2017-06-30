@@ -38,10 +38,17 @@ namespace QL_GiaoDichCoPhieu
             temp.SDT = txtPhone.Text;
             temp.email = txtEmail.Text;
 
-            if (Connection.addDB(temp))
-                MessageBox.Show("Thêm nhà đầu tư thành công !", "Message", MessageBoxButtons.OK);
-            else
-                MessageBox.Show("Thêm nhà đầu tư thất bại !", "Message", MessageBoxButtons.OK);
+            try
+            {
+                string query = "exec TAO_LOGIN '" + txtTK.Text.ToString() + "','" + txtMK.Text.ToString() + "','" + txtMaNDT.Text + "','NDT'";
+                if (Connection.ExecQueryString(query) != 0)
+                    if (Connection.addDB(temp))
+                        MessageBox.Show("Thêm nhà đầu tư thành công !", "Message", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void frmCreateAccountNDT_Load(object sender, EventArgs e)
@@ -88,13 +95,11 @@ namespace QL_GiaoDichCoPhieu
         private void txtMaNDT_TextChanged(object sender, EventArgs e)
         {
             checkNotNull();
-
         }
 
         private void txtID_TextChanged(object sender, EventArgs e)
         {
             checkNotNull();
-
         }
 
         private void txtMaTK_TextChanged(object sender, EventArgs e)
@@ -137,7 +142,7 @@ namespace QL_GiaoDichCoPhieu
             if (txtMoney.Text != "" && txtEmail.Text != "" && txtPhone.Text != "" &&
                 txtAddress.Text != "" && txtName.Text != "" && txtPasswordGD.Text != ""
                 && txtMaTK.Text != "" && txtID.Text != "" && txtMaNDT.Text != ""
-                && txtCofirm.Text != "")
+                && txtCofirm.Text != "" && txtTK.Text != "" && txtXMK.Text != "" && txtMK.Text != "")
                 btnCreate.Enabled = true;
             else btnCreate.Enabled = false;
 
@@ -173,6 +178,25 @@ namespace QL_GiaoDichCoPhieu
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void txtTK_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtMK_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtXMK_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMK.Text == txtXMK.Text)
+                btnCreate.Enabled = true;
+            else
+                btnCreate.Enabled = false;
+            checkNotNull();
         }
     }
 }

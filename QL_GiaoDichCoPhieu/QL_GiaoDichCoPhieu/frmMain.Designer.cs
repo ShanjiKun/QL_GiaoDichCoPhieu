@@ -44,11 +44,12 @@
             this.tbnCreateNDT = new DevExpress.XtraBars.BarButtonItem();
             this.btnTKNDT = new DevExpress.XtraBars.BarButtonItem();
             this.btnSKDSLD = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBackup = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -81,9 +82,11 @@
             this.btnChangePassword,
             this.tbnCreateNDT,
             this.btnTKNDT,
-            this.btnSKDSLD});
+            this.btnSKDSLD,
+            this.btnBackup,
+            this.barButtonItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 15;
+            this.ribbon.MaxItemId = 17;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -91,7 +94,7 @@
             this.ribbonPage3,
             this.ribbonPage4,
             this.ribbonPage5});
-            this.ribbon.Size = new System.Drawing.Size(714, 146);
+            this.ribbon.Size = new System.Drawing.Size(630, 146);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnLogOut
@@ -104,7 +107,7 @@
             // 
             // btnBalanceAccount
             // 
-            this.btnBalanceAccount.Caption = "Số dư tài khoản";
+            this.btnBalanceAccount.Caption = "Tra cứu số dư";
             this.btnBalanceAccount.Glyph = global::QL_GiaoDichCoPhieu.Properties.Resources.icons8_bank_card_back_side;
             this.btnBalanceAccount.Id = 2;
             this.btnBalanceAccount.LargeGlyph = global::QL_GiaoDichCoPhieu.Properties.Resources.icons8_bank_card_back_side;
@@ -117,7 +120,6 @@
             this.btnBalanceStock.Id = 3;
             this.btnBalanceStock.LargeGlyph = global::QL_GiaoDichCoPhieu.Properties.Resources.icons8_money;
             this.btnBalanceStock.Name = "btnBalanceStock";
-            this.btnBalanceStock.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBalanceStock_ItemClick);
             // 
             // btnGD
             // 
@@ -203,6 +205,22 @@
             this.btnSKDSLD.Name = "btnSKDSLD";
             this.btnSKDSLD.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSKDSLD_ItemClick);
             // 
+            // btnBackup
+            // 
+            this.btnBackup.Caption = "Backup";
+            this.btnBackup.Id = 15;
+            this.btnBackup.LargeGlyph = global::QL_GiaoDichCoPhieu.Properties.Resources.icons8_data_backup;
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackup_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Restore";
+            this.barButtonItem1.Id = 16;
+            this.barButtonItem1.LargeGlyph = global::QL_GiaoDichCoPhieu.Properties.Resources.icons8_restore_page_filled;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.onRestoreTapped);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -213,13 +231,14 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnLogOut);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnBackup);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2,
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup2});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Tra cứu số dư";
             // 
@@ -227,11 +246,6 @@
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBalanceAccount);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.btnBalanceStock);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             // 
             // ribbonPage3
             // 
@@ -281,10 +295,10 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 517);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 628);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(714, 21);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(630, 21);
             // 
             // xtraTabbedMdiManager1
             // 
@@ -298,7 +312,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 538);
+            this.ClientSize = new System.Drawing.Size(630, 649);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
@@ -307,7 +321,8 @@
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "frmMain";
+            this.Text = "Cổ phiếu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
@@ -330,7 +345,6 @@
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraBars.BarButtonItem btnGD;
         private DevExpress.XtraBars.BarButtonItem btnLK;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem bt;
@@ -348,5 +362,7 @@
         private DevExpress.XtraBars.BarButtonItem tbnCreateNDT;
         private DevExpress.XtraBars.BarButtonItem btnTKNDT;
         private DevExpress.XtraBars.BarButtonItem btnSKDSLD;
+        private DevExpress.XtraBars.BarButtonItem btnBackup;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

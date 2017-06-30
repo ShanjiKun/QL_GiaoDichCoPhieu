@@ -22,8 +22,10 @@ namespace QL_GiaoDichCoPhieu
         private void frmUpdateTKNDT_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qL_GDCPDataSet.NDT' table. You can move, or remove it, as needed.
+            this.nDTTableAdapter.Connection.ConnectionString = Program.datasetConnectionString;
             this.nDTTableAdapter.Fill(this.qL_GDCPDataSet.NDT);
             // TODO: This line of code loads data into the 'qL_GDCPDataSet.NGANHANG' table. You can move, or remove it, as needed.
+            this.nGANHANGTableAdapter.Connection.ConnectionString = Program.datasetConnectionString;
             this.nGANHANGTableAdapter.Fill(this.qL_GDCPDataSet.NGANHANG);
             DataRow dt = this.qL_GDCPDataSet.NDT.Take(1).FirstOrDefault();
             txtName.Text = dt[1].ToString();

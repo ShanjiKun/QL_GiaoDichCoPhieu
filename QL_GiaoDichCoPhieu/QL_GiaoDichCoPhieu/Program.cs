@@ -19,6 +19,8 @@ namespace QL_GiaoDichCoPhieu
             Application.Run(new frmLogin());
         }
 
+        public static int media_id = 1;
+        public static string Id;
         public static string UserName;
         public static string Name;
         public static string serverName = Environment.MachineName + "";

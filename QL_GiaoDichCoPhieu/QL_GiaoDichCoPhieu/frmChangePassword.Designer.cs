@@ -28,272 +28,252 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.cmbMaNDT = new System.Windows.Forms.ComboBox();
-            this.nDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qL_GDCPDataSet = new QL_GiaoDichCoPhieu.QL_GDCPDataSet();
             this.btnCreate = new DevExpress.XtraEditors.SimpleButton();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtConfirm = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtOldPass = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.nDTTableAdapter = new QL_GiaoDichCoPhieu.QL_GDCPDataSetTableAdapters.NDTTableAdapter();
-            this.txtNewPass = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.nDTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qL_GDCPDataSet)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtCfLogin = new System.Windows.Forms.TextBox();
+            this.txtNewLogin = new System.Windows.Forms.TextBox();
+            this.txtOldLogin = new System.Windows.Forms.TextBox();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.txtCf = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtNew = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtOld = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cmbMaNDT
-            // 
-            this.cmbMaNDT.DataSource = this.nDTBindingSource;
-            this.cmbMaNDT.DisplayMember = "MaNDT";
-            this.cmbMaNDT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMaNDT.FormattingEnabled = true;
-            this.cmbMaNDT.Location = new System.Drawing.Point(111, 126);
-            this.cmbMaNDT.Name = "cmbMaNDT";
-            this.cmbMaNDT.Size = new System.Drawing.Size(147, 21);
-            this.cmbMaNDT.TabIndex = 68;
-            this.cmbMaNDT.ValueMember = "MaNDT";
-            this.cmbMaNDT.SelectedIndexChanged += new System.EventHandler(this.cmbMaNDT_SelectedIndexChanged);
-            // 
-            // nDTBindingSource
-            // 
-            this.nDTBindingSource.DataMember = "NDT";
-            this.nDTBindingSource.DataSource = this.qL_GDCPDataSet;
-            // 
-            // qL_GDCPDataSet
-            // 
-            this.qL_GDCPDataSet.DataSetName = "QL_GDCPDataSet";
-            this.qL_GDCPDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(452, 288);
+            this.btnCreate.Location = new System.Drawing.Point(404, 230);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 67;
             this.btnCreate.Text = "Xác nhận";
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
-            // txtID
+            // label1
             // 
-            this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(380, 166);
-            this.txtID.MaxLength = 10;
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(147, 20);
-            this.txtID.TabIndex = 65;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(306, 169);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
-            this.label6.TabIndex = 66;
-            this.label6.Text = "CMND";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Enabled = false;
-            this.txtEmail.Location = new System.Drawing.Point(380, 242);
-            this.txtEmail.MaxLength = 50;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(147, 20);
-            this.txtEmail.TabIndex = 61;
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Enabled = false;
-            this.txtPhone.Location = new System.Drawing.Point(380, 205);
-            this.txtPhone.MaxLength = 15;
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(147, 20);
-            this.txtPhone.TabIndex = 60;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(305, 245);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 13);
-            this.label9.TabIndex = 64;
-            this.label9.Text = "Email";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(305, 208);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 13);
-            this.label7.TabIndex = 63;
-            this.label7.Text = "Số điện thoại";
-            // 
-            // txtName
-            // 
-            this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(380, 129);
-            this.txtName.MaxLength = 50;
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(147, 20);
-            this.txtName.TabIndex = 59;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(306, 132);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
-            this.label4.TabIndex = 62;
-            this.label4.Text = "Họ tên";
-            // 
-            // txtConfirm
-            // 
-            this.txtConfirm.Location = new System.Drawing.Point(111, 246);
-            this.txtConfirm.MaxLength = 50;
-            this.txtConfirm.Name = "txtConfirm";
-            this.txtConfirm.Size = new System.Drawing.Size(147, 20);
-            this.txtConfirm.TabIndex = 57;
-            this.txtConfirm.UseSystemPasswordChar = true;
-            this.txtConfirm.TextChanged += new System.EventHandler(this.txtConfirm_TextChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(36, 249);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 13);
-            this.label13.TabIndex = 58;
-            this.label13.Text = "Xác nhận";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(36, 208);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 13);
-            this.label12.TabIndex = 56;
-            this.label12.Text = "Mật khẩu mới";
-            // 
-            // txtOldPass
-            // 
-            this.txtOldPass.Location = new System.Drawing.Point(111, 166);
-            this.txtOldPass.MaxLength = 50;
-            this.txtOldPass.Name = "txtOldPass";
-            this.txtOldPass.Size = new System.Drawing.Size(147, 20);
-            this.txtOldPass.TabIndex = 53;
-            this.txtOldPass.UseSystemPasswordChar = true;
-            this.txtOldPass.TextChanged += new System.EventHandler(this.txtOldPass_TextChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(36, 169);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 13);
-            this.label11.TabIndex = 54;
-            this.label11.Text = "Mậu khẩu cũ";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(95, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(307, 24);
+            this.label1.TabIndex = 51;
+            this.label1.Text = "Cập Nhật Mật Khẩu Nhà Đầu Tư";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 129);
+            this.label2.Location = new System.Drawing.Point(5, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 52;
-            this.label2.Text = "Mã NDT";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Mật khẩu cũ";
             // 
-            // label1
+            // separatorControl1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(180, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(237, 20);
-            this.label1.TabIndex = 51;
-            this.label1.Text = "Cập Nhật Mật Khẩu Nhà Đầu Tư";
+            this.separatorControl1.Location = new System.Drawing.Point(32, 70);
+            this.separatorControl1.Name = "separatorControl1";
+            this.separatorControl1.Size = new System.Drawing.Size(447, 23);
+            this.separatorControl1.TabIndex = 69;
             // 
-            // nDTTableAdapter
+            // label3
             // 
-            this.nDTTableAdapter.ClearBeforeFill = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 70;
+            this.label3.Text = "Mật khẩu mới";
             // 
-            // txtNewPass
+            // label4
             // 
-            this.txtNewPass.Location = new System.Drawing.Point(111, 205);
-            this.txtNewPass.MaxLength = 50;
-            this.txtNewPass.Name = "txtNewPass";
-            this.txtNewPass.Size = new System.Drawing.Size(147, 20);
-            this.txtNewPass.TabIndex = 69;
-            this.txtNewPass.UseSystemPasswordChar = true;
-            this.txtNewPass.TextChanged += new System.EventHandler(this.txtNewPass_TextChanged);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 13);
+            this.label4.TabIndex = 71;
+            this.label4.Text = "Xác nhận MK";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.txtCfLogin);
+            this.panelControl1.Controls.Add(this.txtNewLogin);
+            this.panelControl1.Controls.Add(this.txtOldLogin);
+            this.panelControl1.Controls.Add(this.label2);
+            this.panelControl1.Controls.Add(this.label3);
+            this.panelControl1.Controls.Add(this.label4);
+            this.panelControl1.Location = new System.Drawing.Point(32, 119);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(213, 100);
+            this.panelControl1.TabIndex = 75;
+            // 
+            // txtCfLogin
+            // 
+            this.txtCfLogin.Location = new System.Drawing.Point(76, 69);
+            this.txtCfLogin.Name = "txtCfLogin";
+            this.txtCfLogin.Size = new System.Drawing.Size(128, 21);
+            this.txtCfLogin.TabIndex = 74;
+            this.txtCfLogin.UseSystemPasswordChar = true;
+            // 
+            // txtNewLogin
+            // 
+            this.txtNewLogin.Location = new System.Drawing.Point(76, 40);
+            this.txtNewLogin.Name = "txtNewLogin";
+            this.txtNewLogin.Size = new System.Drawing.Size(128, 21);
+            this.txtNewLogin.TabIndex = 73;
+            this.txtNewLogin.UseSystemPasswordChar = true;
+            // 
+            // txtOldLogin
+            // 
+            this.txtOldLogin.Location = new System.Drawing.Point(76, 9);
+            this.txtOldLogin.Name = "txtOldLogin";
+            this.txtOldLogin.Size = new System.Drawing.Size(128, 21);
+            this.txtOldLogin.TabIndex = 72;
+            this.txtOldLogin.UseSystemPasswordChar = true;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.txtCf);
+            this.panelControl2.Controls.Add(this.label5);
+            this.panelControl2.Controls.Add(this.txtNew);
+            this.panelControl2.Controls.Add(this.label6);
+            this.panelControl2.Controls.Add(this.txtOld);
+            this.panelControl2.Controls.Add(this.label7);
+            this.panelControl2.Location = new System.Drawing.Point(262, 119);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(217, 100);
+            this.panelControl2.TabIndex = 76;
+            // 
+            // txtCf
+            // 
+            this.txtCf.Location = new System.Drawing.Point(76, 69);
+            this.txtCf.Name = "txtCf";
+            this.txtCf.Size = new System.Drawing.Size(128, 21);
+            this.txtCf.TabIndex = 77;
+            this.txtCf.UseSystemPasswordChar = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.TabIndex = 68;
+            this.label5.Text = "Mật khẩu cũ";
+            // 
+            // txtNew
+            // 
+            this.txtNew.Location = new System.Drawing.Point(76, 40);
+            this.txtNew.Name = "txtNew";
+            this.txtNew.Size = new System.Drawing.Size(128, 21);
+            this.txtNew.TabIndex = 76;
+            this.txtNew.UseSystemPasswordChar = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 43);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.TabIndex = 70;
+            this.label6.Text = "Mật khẩu mới";
+            // 
+            // txtOld
+            // 
+            this.txtOld.Location = new System.Drawing.Point(76, 9);
+            this.txtOld.Name = "txtOld";
+            this.txtOld.Size = new System.Drawing.Size(128, 21);
+            this.txtOld.TabIndex = 75;
+            this.txtOld.UseSystemPasswordChar = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 72);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 13);
+            this.label7.TabIndex = 71;
+            this.label7.Text = "Xác nhận MK";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(37, 96);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 13);
+            this.label8.TabIndex = 77;
+            this.label8.Text = "Đăng nhập";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(272, 96);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 13);
+            this.label9.TabIndex = 78;
+            this.label9.Text = "Giao dịch";
             // 
             // frmChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 332);
-            this.Controls.Add(this.txtNewPass);
-            this.Controls.Add(this.cmbMaNDT);
-            this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.txtID);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtPhone);
+            this.ClientSize = new System.Drawing.Size(513, 265);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtConfirm);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtOldPass);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.panelControl2);
+            this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.separatorControl1);
+            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.label1);
             this.Name = "frmChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmChangePassword";
             this.Load += new System.EventHandler(this.frmChangePassword_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nDTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qL_GDCPDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            this.panelControl2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cmbMaNDT;
         private DevExpress.XtraEditors.SimpleButton btnCreate;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtConfirm;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtOldPass;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private QL_GDCPDataSet qL_GDCPDataSet;
-        private System.Windows.Forms.BindingSource nDTBindingSource;
-        private QL_GDCPDataSetTableAdapters.NDTTableAdapter nDTTableAdapter;
-        private System.Windows.Forms.TextBox txtNewPass;
+        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private System.Windows.Forms.TextBox txtCfLogin;
+        private System.Windows.Forms.TextBox txtNewLogin;
+        private System.Windows.Forms.TextBox txtOldLogin;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private System.Windows.Forms.TextBox txtCf;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtNew;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtOld;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

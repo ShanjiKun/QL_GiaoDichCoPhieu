@@ -47,9 +47,11 @@ namespace QL_GiaoDichCoPhieu
             SqlConnection cnn = new SqlConnection(Program.datasetConnectionString);
             if (cnn.State == ConnectionState.Closed)
                 cnn.Open();
-            SqlCommand cmd = new SqlCommand("SP_AVAILABLEMONEY", cnn);
-            cmd.Parameters.AddWithValue("@MaTK", MaTK);
-            cmd.CommandType = CommandType.StoredProcedure;
+            
+            SqlCommand cmd = new SqlCommand("exec SP_AVAILABLEMONEY '"+MaTK+"'", cnn);
+            //SqlCommand cmd = new SqlCommand("SP_AVAILABLEMONEY", cnn);
+            //cmd.Parameters.AddWithValue("@MaTK", MaTK);
+            //cmd.CommandType = CommandType.StoredProcedure;
             SqlDataReader sdr = cmd.ExecuteReader();
             return sdr;
         }
@@ -84,12 +86,9 @@ namespace QL_GiaoDichCoPhieu
 
         public static bool addDB(addNDT ndt)
         {
-            string connectionString = "Data Source=" + Program.serverName +"; Initial Catalog=QL_GDCP"
-                        + ";Integrated Security=SSPI";
-            SqlConnection cnn = new SqlConnection(connectionString);
-            string SQL = "SP_CREATENDT";
+            SqlConnection cnn = new SqlConnection(Program.datasetConnectionString);
 
-            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            SqlCommand cmd = new SqlCommand("SP_CREATENDT", cnn);
 
             // truyền tham số vào SqlCommand
             cmd.Parameters.AddWithValue("@MaNDT", ndt.maNDT);
@@ -152,6 +151,17 @@ namespace QL_GiaoDichCoPhieu
             da.Fill(dt);
             cnn.Close();
             return dt;
+        }
+
+        public static SqlDataReader ExecSqlDataReader(string sql)
+        {
+            SqlConnection cnn = new SqlConnection(Program.datasetConnectionString);
+            if (cnn.State == ConnectionState.Closed)
+                cnn.Open();
+
+            SqlCommand cmd = new SqlCommand(sql, cnn);
+            SqlDataReader sdr = cmd.ExecuteReader();
+            return sdr;
         }
     }
 }

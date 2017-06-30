@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaTK = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -52,20 +51,11 @@
             this.cmbMaNDT = new System.Windows.Forms.ComboBox();
             this.nDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nDTTableAdapter = new QL_GiaoDichCoPhieu.QL_GDCPDataSetTableAdapters.NDTTableAdapter();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nGANHANGBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_GDCPDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nDTBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(175, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 20);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Cập Nhật Tài Khoản Nhà Đầu Tư";
             // 
             // label2
             // 
@@ -250,11 +240,23 @@
             // 
             this.nDTTableAdapter.ClearBeforeFill = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(137, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(315, 24);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Cập Nhật Tài Khoản Nhà Đầu Tư";
+            // 
             // frmUpdateTKNDT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 341);
+            this.ClientSize = new System.Drawing.Size(558, 325);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbMaNDT);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.txtID);
@@ -272,9 +274,9 @@
             this.Controls.Add(this.txtMaTK);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmUpdateTKNDT";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUpdateTKNDT";
             this.Load += new System.EventHandler(this.frmUpdateTKNDT_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nGANHANGBindingSource)).EndInit();
@@ -286,8 +288,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMaTK;
         private System.Windows.Forms.Label label11;
@@ -310,5 +310,6 @@
         private System.Windows.Forms.ComboBox cmbMaNDT;
         private System.Windows.Forms.BindingSource nDTBindingSource;
         private QL_GDCPDataSetTableAdapters.NDTTableAdapter nDTTableAdapter;
+        private System.Windows.Forms.Label label3;
     }
 }

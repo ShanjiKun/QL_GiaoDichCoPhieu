@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QL_GiaoDichCoPhieu.Models;
 
 namespace QL_GiaoDichCoPhieu
 {
@@ -81,10 +82,12 @@ namespace QL_GiaoDichCoPhieu
 
                 Program.UserName = sdr.GetString(0);
                 Program.Name = sdr.GetString(2);
-
+                Program.Id = txtUserName.Text.ToString();
                 frmMain frmMain = new frmMain();
                 this.Hide();
                 frmMain.Show();
+                //Add connectring
+                DatabaseManager.sharedInstance().setConnectionString(cnn);
             }
         }
 
