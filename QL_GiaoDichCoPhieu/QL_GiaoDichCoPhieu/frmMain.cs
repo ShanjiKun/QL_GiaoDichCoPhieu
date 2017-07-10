@@ -60,14 +60,7 @@ namespace QL_GiaoDichCoPhieu
 
         private void btnBalanceStock_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!CheckExistForm("frmBalanceStock"))
-            {
-                frmBalanceStock frmBalanceStock = new frmBalanceStock();
-                frmBalanceStock.MdiParent = this;
-                frmBalanceStock.Show();
-            }
-            else
-                ActiveChildForm("frmBalanceStock");
+
         }
 
         private void btnGD_ItemClick(object sender, ItemClickEventArgs e)
@@ -120,14 +113,14 @@ namespace QL_GiaoDichCoPhieu
 
         private void btnCreateAccount_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!CheckExistForm("frmCreateAccount"))
+            if (!CheckExistForm("frmNhanVien"))
             {
-                frmCreateAccount frmCreateAccount = new frmCreateAccount();
-                frmCreateAccount.MdiParent = this;
-                frmCreateAccount.Show();
+                frmNhanVien frmNhanVien = new frmNhanVien();
+                frmNhanVien.MdiParent = this;
+                frmNhanVien.Show();
             }
             else
-                ActiveChildForm("frmCreateAccount");
+                ActiveChildForm("frmNhanVien");
         }
 
         private void btnLogOut_ItemClick(object sender, ItemClickEventArgs e)
@@ -139,14 +132,76 @@ namespace QL_GiaoDichCoPhieu
 
         private void tbnCreateNDT_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!CheckExistForm("frmCreateAccountNDT"))
+            frmCreateAccountNDT frmCreateAccountNDT = new frmCreateAccountNDT();
+            frmCreateAccountNDT.ShowDialog();
+        }
+
+        private void btnTKNDT_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmUpdateTKNDT frmUpdateTKNDT = new frmUpdateTKNDT();
+            frmUpdateTKNDT.ShowDialog();
+        }
+
+        private void btnSKDSLD_ItemClick(object sender, ItemClickEventArgs e)
+        {
+          
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            if(Program.Name == "ADMIN")
             {
-                frmCreateAccountNDT frmCreateAccountNDT = new frmCreateAccountNDT();
-                frmCreateAccountNDT.MdiParent = this;
-                frmCreateAccountNDT.Show();
+                ribbonPage2.Visible = false;
+                ribbonPage3.Visible = false;
+                ribbonPage4.Visible = false;
+                tbnCreateNDT.Enabled = false;
+                btnTKNDT.Enabled = false;
+                
             }
-            else
-                ActiveChildForm("frmCreateAccountNDT");
+            else if(Program.Name == "NHANVIEN")
+            {
+                ribbonPage2.Visible = false;
+                ribbonPage3.Visible = false;
+                ribbonPage4.Visible = false;
+                btnChangePassword.Enabled = false;
+                btnCreateAccount.Enabled = false;
+                btnBackup.Enabled = false;
+                barButtonItem1.Enabled = false;
+            }
+            else if(Program.Name == "NDT")
+            {
+                btnCreateAccount.Enabled = false;
+                tbnCreateNDT.Enabled = false;
+                btnTKNDT.Enabled = false;
+                btnBackup.Enabled = false;
+                barButtonItem1.Enabled = false;
+            }
+
+        }
+
+        private void btnChangePassword_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if(Program.Name == "NDT")
+            {
+                frmChangePassword frm = new frmChangePassword();
+                frm.ShowDialog();
+            }else
+            {
+                frmChangePassAD frm = new frmChangePassAD();
+                frm.ShowDialog();
+            }
+        }
+
+        private void btnBackup_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmBackup frm = new frmBackup();
+            frm.ShowDialog();
+        }
+
+        private void onRestoreTapped(object sender, ItemClickEventArgs e)
+        {
+            frmRestore frm = new frmRestore();
+            frm.ShowDialog();
         }
     }
 }

@@ -48,8 +48,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.lbPriceMiddle = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.tbStockBalance = new System.Windows.Forms.TextBox();
-            this.tbBuyPrice = new System.Windows.Forms.TextBox();
             this.tbPasswordTransaction = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.lbTotalPrice = new System.Windows.Forms.Label();
@@ -61,12 +59,16 @@
             this.lbBankName = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.button1 = new System.Windows.Forms.Button();
+            this.nudBuyPrice = new System.Windows.Forms.NumericUpDown();
+            this.nudBuyCount = new System.Windows.Forms.NumericUpDown();
+            this.btnBuy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBuyPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBuyCount)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -249,24 +251,6 @@
             this.label18.TabIndex = 20;
             this.label18.Text = "Giá TC:";
             // 
-            // tbStockBalance
-            // 
-            this.tbStockBalance.Location = new System.Drawing.Point(222, 97);
-            this.tbStockBalance.Name = "tbStockBalance";
-            this.tbStockBalance.Size = new System.Drawing.Size(120, 21);
-            this.tbStockBalance.TabIndex = 24;
-            this.tbStockBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbStockBalance.TextChanged += new System.EventHandler(this.onLbStockBalanceChanged);
-            // 
-            // tbBuyPrice
-            // 
-            this.tbBuyPrice.Location = new System.Drawing.Point(222, 124);
-            this.tbBuyPrice.Name = "tbBuyPrice";
-            this.tbBuyPrice.Size = new System.Drawing.Size(120, 21);
-            this.tbBuyPrice.TabIndex = 25;
-            this.tbBuyPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbBuyPrice.TextChanged += new System.EventHandler(this.onLbBuyPriceChanged);
-            // 
             // tbPasswordTransaction
             // 
             this.tbPasswordTransaction.Location = new System.Drawing.Point(223, 151);
@@ -275,15 +259,16 @@
             this.tbPasswordTransaction.Size = new System.Drawing.Size(120, 21);
             this.tbPasswordTransaction.TabIndex = 26;
             this.tbPasswordTransaction.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbPasswordTransaction.TextChanged += new System.EventHandler(this.onTextChanged);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(348, 133);
+            this.label20.Location = new System.Drawing.Point(348, 127);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(27, 13);
+            this.label20.Size = new System.Drawing.Size(102, 13);
             this.label20.TabIndex = 27;
-            this.label20.Text = "VND";
+            this.label20.Text = "nghìn VND/Cổ phiếu";
             // 
             // lbTotalPrice
             // 
@@ -293,6 +278,7 @@
             this.lbTotalPrice.Size = new System.Drawing.Size(36, 13);
             this.lbTotalPrice.TabIndex = 28;
             this.lbTotalPrice.Text = "0 VND";
+            this.lbTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cbStock
             // 
@@ -308,9 +294,9 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(373, 13);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(27, 13);
+            this.label22.Size = new System.Drawing.Size(56, 13);
             this.label22.TabIndex = 30;
-            this.label22.Text = "VND";
+            this.label22.Text = "nghìn VND";
             // 
             // label23
             // 
@@ -363,7 +349,9 @@
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.button1);
+            this.panelControl2.Controls.Add(this.nudBuyPrice);
+            this.panelControl2.Controls.Add(this.nudBuyCount);
+            this.panelControl2.Controls.Add(this.btnBuy);
             this.panelControl2.Controls.Add(this.label4);
             this.panelControl2.Controls.Add(this.label5);
             this.panelControl2.Controls.Add(this.label23);
@@ -378,9 +366,7 @@
             this.panelControl2.Controls.Add(this.label12);
             this.panelControl2.Controls.Add(this.tbPasswordTransaction);
             this.panelControl2.Controls.Add(this.label13);
-            this.panelControl2.Controls.Add(this.tbBuyPrice);
             this.panelControl2.Controls.Add(this.lbPriceMax);
-            this.panelControl2.Controls.Add(this.tbStockBalance);
             this.panelControl2.Controls.Add(this.label16);
             this.panelControl2.Controls.Add(this.lbPriceMiddle);
             this.panelControl2.Controls.Add(this.lbPriceMin);
@@ -390,21 +376,56 @@
             this.panelControl2.Size = new System.Drawing.Size(524, 258);
             this.panelControl2.TabIndex = 34;
             // 
-            // button1
+            // nudBuyPrice
             // 
-            this.button1.Location = new System.Drawing.Point(222, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 33);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Đặt lệnh";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.onBuyTapped);
+            this.nudBuyPrice.DecimalPlaces = 1;
+            this.nudBuyPrice.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nudBuyPrice.Location = new System.Drawing.Point(222, 125);
+            this.nudBuyPrice.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudBuyPrice.Name = "nudBuyPrice";
+            this.nudBuyPrice.Size = new System.Drawing.Size(120, 21);
+            this.nudBuyPrice.TabIndex = 37;
+            this.nudBuyPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudBuyPrice.ValueChanged += new System.EventHandler(this.onBuyPriceChanged);
+            // 
+            // nudBuyCount
+            // 
+            this.nudBuyCount.Location = new System.Drawing.Point(222, 98);
+            this.nudBuyCount.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.nudBuyCount.Name = "nudBuyCount";
+            this.nudBuyCount.Size = new System.Drawing.Size(120, 21);
+            this.nudBuyCount.TabIndex = 36;
+            this.nudBuyCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudBuyCount.ValueChanged += new System.EventHandler(this.onBuyBalanceChanged);
+            // 
+            // btnBuy
+            // 
+            this.btnBuy.Enabled = false;
+            this.btnBuy.Location = new System.Drawing.Point(222, 219);
+            this.btnBuy.Name = "btnBuy";
+            this.btnBuy.Size = new System.Drawing.Size(119, 33);
+            this.btnBuy.TabIndex = 35;
+            this.btnBuy.Text = "Đặt lệnh";
+            this.btnBuy.UseVisualStyleBackColor = true;
+            this.btnBuy.Click += new System.EventHandler(this.onBuyTapped);
             // 
             // frmBuys
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 519);
+            this.ClientSize = new System.Drawing.Size(548, 453);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.separatorControl1);
@@ -422,6 +443,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBuyPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBuyCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,8 +472,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lbPriceMiddle;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox tbStockBalance;
-        private System.Windows.Forms.TextBox tbBuyPrice;
         private System.Windows.Forms.TextBox tbPasswordTransaction;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lbTotalPrice;
@@ -461,7 +482,9 @@
         private System.Windows.Forms.Label lbBankName;
         private System.Windows.Forms.Label label19;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuy;
         private System.Windows.Forms.ComboBox cbAccountID;
+        private System.Windows.Forms.NumericUpDown nudBuyPrice;
+        private System.Windows.Forms.NumericUpDown nudBuyCount;
     }
 }

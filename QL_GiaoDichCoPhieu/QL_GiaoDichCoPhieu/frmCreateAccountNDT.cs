@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -18,44 +19,35 @@ namespace QL_GiaoDichCoPhieu
         public frmCreateAccountNDT()
         {
             InitializeComponent();
+            btnCreate.Enabled = false;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (txtMaNDT.Text == "")
-                MessageBox.Show("Vui lòng nhập mã đầu tư !", "Message", MessageBoxButtons.OK);
-            else if(txtID.Text == "")
-                MessageBox.Show("Vui lòng nhập chứng minh nhân dân !", "Message", MessageBoxButtons.OK);
-            else if(txtPasswordGD.Text == "")
-                MessageBox.Show("Vui lòng nhập mật khẩu giao dịch !", "Message", MessageBoxButtons.OK);
-            else if(txtMoney.Text == "")
-                MessageBox.Show("Vui lòng nhập số tiền !", "Message", MessageBoxButtons.OK);
-            else if(txtName.Text == "")
-                MessageBox.Show("Vui lòng nhập tên !", "Message", MessageBoxButtons.OK);
-            else if(txtAddress.Text == "")
-                MessageBox.Show("Vui lòng nhập địa chỉ !", "Message", MessageBoxButtons.OK);
-            else if(txtPhone.Text == "")
-                MessageBox.Show("Vui lòng nhập số điện thoại !", "Message", MessageBoxButtons.OK);
-            else if(txtEmail.Text == "")
-                MessageBox.Show("Vui lòng nhập email !", "Message", MessageBoxButtons.OK);
-            else
-            {
-                addNDT temp = new addNDT();
-                temp.maNDT = txtMaNDT.Text;
-                temp.gioiTinh = radNam.Checked ? "Nam" : "Nu";
-                temp.ngaySinh = dtpBirthDay.Value;
-                temp.CMND = txtID.Text;
-                temp.maTK = txtMaTK.Text;
-                temp.nganHang = cmbBank.SelectedValue.ToString();
-                temp.MKGD = txtPasswordGD.Text;
-                temp.soTien = float.Parse(txtMoney.Text);
-                temp.hoTen = txtName.Text;
-                temp.diaChi = txtAddress.Text;
-                temp.SDT = txtPhone.Text;
-                temp.email = txtEmail.Text;
+            addNDT temp = new addNDT();
+            temp.maNDT = txtMaNDT.Text;
+            temp.gioiTinh = radNam.Checked ? "Nam" : "Nu";
+            temp.ngaySinh = dtpBirthDay.Value;
+            temp.CMND = txtID.Text;
+            temp.maTK = txtMaTK.Text;
+            temp.nganHang = cmbBank.SelectedValue.ToString();
+            temp.MKGD = txtPasswordGD.Text;
+            temp.soTien = float.Parse(txtMoney.Text);
+            temp.hoTen = txtName.Text;
+            temp.diaChi = txtAddress.Text;
+            temp.SDT = txtPhone.Text;
+            temp.email = txtEmail.Text;
 
-                if (Connection.addDB(temp))
-                    MessageBox.Show("Thêm nhà đầu tư thành công !", "Message", MessageBoxButtons.OK);
+            try
+            {
+                string query = "exec TAO_LOGIN '" + txtTK.Text.ToString() + "','" + txtMK.Text.ToString() + "','" + txtMaNDT.Text + "','NDT'";
+                if (Connection.ExecQueryString(query) != 0)
+                    if (Connection.addDB(temp))
+                        MessageBox.Show("Thêm nhà đầu tư thành công !", "Message", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -89,6 +81,122 @@ namespace QL_GiaoDichCoPhieu
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void txtCofirm_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCofirm.Text == txtPasswordGD.Text)
+                btnCreate.Enabled = true;
+            else
+                btnCreate.Enabled = false;
+            checkNotNull();
+        }
+
+        private void txtMaNDT_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtMaTK_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtPasswordGD_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtMoney_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        void checkNotNull()
+        {
+            if (txtMoney.Text != "" && txtEmail.Text != "" && txtPhone.Text != "" &&
+                txtAddress.Text != "" && txtName.Text != "" && txtPasswordGD.Text != ""
+                && txtMaTK.Text != "" && txtID.Text != "" && txtMaNDT.Text != ""
+                && txtCofirm.Text != "" && txtTK.Text != "" && txtXMK.Text != "" && txtMK.Text != "")
+                btnCreate.Enabled = true;
+            else btnCreate.Enabled = false;
+
+        }
+
+        private void txtMaNDT_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Connection.checkMaNDT(txtMaNDT.Text) == 1)
+                {
+                    MessageBox.Show("Mã nhà đầu tư đã tồn tại!");
+                    txtMaNDT.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtMaTK_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Connection.checkMaTK(txtMaTK.Text) == 1)
+                {
+                    MessageBox.Show("Mã tài khoản đã tồn tại!");
+                    txtMaTK.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtTK_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtMK_TextChanged(object sender, EventArgs e)
+        {
+            checkNotNull();
+        }
+
+        private void txtXMK_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMK.Text == txtXMK.Text)
+                btnCreate.Enabled = true;
+            else
+                btnCreate.Enabled = false;
+            checkNotNull();
         }
     }
 }

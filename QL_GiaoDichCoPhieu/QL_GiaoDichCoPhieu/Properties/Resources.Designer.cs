@@ -93,6 +93,26 @@ namespace QL_GiaoDichCoPhieu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_bank_cards {
+            get {
+                object obj = ResourceManager.GetObject("icons8-bank_cards", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_bank_cards1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-bank_cards1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_businessman {
             get {
                 object obj = ResourceManager.GetObject("icons8-businessman", resourceCulture);
@@ -116,6 +136,16 @@ namespace QL_GiaoDichCoPhieu.Properties {
         internal static System.Drawing.Bitmap icons8_chevron_down_round {
             get {
                 object obj = ResourceManager.GetObject("icons8-chevron_down_round", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_data_backup {
+            get {
+                object obj = ResourceManager.GetObject("icons8-data_backup", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,6 +183,26 @@ namespace QL_GiaoDichCoPhieu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_print {
+            get {
+                object obj = ResourceManager.GetObject("icons8-print", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_page_filled {
+            get {
+                object obj = ResourceManager.GetObject("icons8-restore_page_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_sell {
             get {
                 object obj = ResourceManager.GetObject("icons8-sell", resourceCulture);
@@ -176,6 +226,16 @@ namespace QL_GiaoDichCoPhieu.Properties {
         internal static System.Drawing.Bitmap male_fill_circle_512 {
             get {
                 object obj = ResourceManager.GetObject("male-fill-circle-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap teacher_2 {
+            get {
+                object obj = ResourceManager.GetObject("teacher-2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

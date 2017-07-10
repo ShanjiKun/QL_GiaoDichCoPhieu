@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnCreate = new DevExpress.XtraEditors.SimpleButton();
             this.txtMaNDT = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -37,7 +36,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,6 +61,15 @@
             this.nGANHANGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLGDCPDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nGANHANGTableAdapter = new QL_GiaoDichCoPhieu.QL_GDCPDataSetTableAdapters.NGANHANGTableAdapter();
+            this.txtCofirm = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtXMK = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtMK = new System.Windows.Forms.TextBox();
+            this.txtTK = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nGANHANGBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_GDCPDataSet)).BeginInit();
@@ -70,17 +77,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.qLGDCPDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(339, 306);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 24;
-            this.btnDelete.Text = "Xóa";
-            // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(440, 306);
+            this.btnCreate.Location = new System.Drawing.Point(440, 407);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 13;
@@ -94,20 +93,23 @@
             this.txtMaNDT.Name = "txtMaNDT";
             this.txtMaNDT.Size = new System.Drawing.Size(147, 20);
             this.txtMaNDT.TabIndex = 0;
+            this.txtMaNDT.TextChanged += new System.EventHandler(this.txtMaNDT_TextChanged);
+            this.txtMaNDT.Leave += new System.EventHandler(this.txtMaNDT_Leave);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(368, 97);
+            this.txtName.Location = new System.Drawing.Point(368, 136);
             this.txtName.MaxLength = 50;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(147, 20);
             this.txtName.TabIndex = 9;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(40, 316);
+            this.label5.Location = new System.Drawing.Point(40, 326);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 13);
             this.label5.TabIndex = 19;
@@ -116,7 +118,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(294, 100);
+            this.label4.Location = new System.Drawing.Point(294, 139);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 18;
@@ -140,16 +142,6 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Mã NDT";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(193, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 20);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Tài Khoản Nhà Đầu Tư";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -162,7 +154,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(293, 173);
+            this.label7.Location = new System.Drawing.Point(293, 212);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 13);
             this.label7.TabIndex = 28;
@@ -171,7 +163,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(293, 136);
+            this.label8.Location = new System.Drawing.Point(293, 175);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 29;
@@ -180,7 +172,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(293, 210);
+            this.label9.Location = new System.Drawing.Point(293, 249);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 13);
             this.label9.TabIndex = 30;
@@ -198,7 +190,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(40, 247);
+            this.label11.Location = new System.Drawing.Point(40, 287);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 13);
             this.label11.TabIndex = 32;
@@ -207,7 +199,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(40, 282);
+            this.label12.Location = new System.Drawing.Point(293, 103);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 13);
             this.label12.TabIndex = 33;
@@ -216,7 +208,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(293, 247);
+            this.label13.Location = new System.Drawing.Point(40, 249);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(40, 13);
             this.label13.TabIndex = 34;
@@ -224,18 +216,20 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(368, 133);
+            this.txtAddress.Location = new System.Drawing.Point(368, 172);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(147, 20);
             this.txtAddress.TabIndex = 10;
+            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(368, 170);
+            this.txtPhone.Location = new System.Drawing.Point(368, 209);
             this.txtPhone.MaxLength = 15;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(147, 20);
             this.txtPhone.TabIndex = 11;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // txtID
@@ -245,38 +239,45 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(147, 20);
             this.txtID.TabIndex = 4;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_KeyPress);
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(368, 207);
+            this.txtEmail.Location = new System.Drawing.Point(368, 246);
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(147, 20);
             this.txtEmail.TabIndex = 12;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtMaTK
             // 
-            this.txtMaTK.Location = new System.Drawing.Point(115, 244);
+            this.txtMaTK.Location = new System.Drawing.Point(115, 284);
             this.txtMaTK.MaxLength = 20;
             this.txtMaTK.Name = "txtMaTK";
             this.txtMaTK.Size = new System.Drawing.Size(147, 20);
             this.txtMaTK.TabIndex = 5;
+            this.txtMaTK.TextChanged += new System.EventHandler(this.txtMaTK_TextChanged);
+            this.txtMaTK.Leave += new System.EventHandler(this.txtMaTK_Leave);
             // 
             // txtPasswordGD
             // 
-            this.txtPasswordGD.Location = new System.Drawing.Point(115, 313);
+            this.txtPasswordGD.Location = new System.Drawing.Point(115, 323);
             this.txtPasswordGD.MaxLength = 50;
             this.txtPasswordGD.Name = "txtPasswordGD";
             this.txtPasswordGD.Size = new System.Drawing.Size(147, 20);
             this.txtPasswordGD.TabIndex = 7;
+            this.txtPasswordGD.UseSystemPasswordChar = true;
+            this.txtPasswordGD.TextChanged += new System.EventHandler(this.txtPasswordGD_TextChanged);
             // 
             // txtMoney
             // 
-            this.txtMoney.Location = new System.Drawing.Point(368, 244);
+            this.txtMoney.Location = new System.Drawing.Point(115, 246);
             this.txtMoney.Name = "txtMoney";
             this.txtMoney.Size = new System.Drawing.Size(147, 20);
             this.txtMoney.TabIndex = 8;
+            this.txtMoney.TextChanged += new System.EventHandler(this.txtMoney_TextChanged);
             this.txtMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMoney_KeyPress);
             // 
             // panel1
@@ -322,8 +323,9 @@
             // 
             this.cmbBank.DataSource = this.nGANHANGBindingSource1;
             this.cmbBank.DisplayMember = "TenNH";
+            this.cmbBank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBank.FormattingEnabled = true;
-            this.cmbBank.Location = new System.Drawing.Point(115, 279);
+            this.cmbBank.Location = new System.Drawing.Point(368, 100);
             this.cmbBank.Name = "cmbBank";
             this.cmbBank.Size = new System.Drawing.Size(147, 21);
             this.cmbBank.TabIndex = 6;
@@ -348,11 +350,104 @@
             // 
             this.nGANHANGTableAdapter.ClearBeforeFill = true;
             // 
+            // txtCofirm
+            // 
+            this.txtCofirm.Location = new System.Drawing.Point(115, 359);
+            this.txtCofirm.MaxLength = 50;
+            this.txtCofirm.Name = "txtCofirm";
+            this.txtCofirm.Size = new System.Drawing.Size(147, 20);
+            this.txtCofirm.TabIndex = 35;
+            this.txtCofirm.UseSystemPasswordChar = true;
+            this.txtCofirm.TextChanged += new System.EventHandler(this.txtCofirm_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(40, 362);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 13);
+            this.label14.TabIndex = 36;
+            this.label14.Text = "Xác nhận MK";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(193, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(169, 20);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Tài Khoản Nhà Đầu Tư";
+            // 
+            // txtXMK
+            // 
+            this.txtXMK.Location = new System.Drawing.Point(368, 359);
+            this.txtXMK.MaxLength = 50;
+            this.txtXMK.Name = "txtXMK";
+            this.txtXMK.Size = new System.Drawing.Size(147, 20);
+            this.txtXMK.TabIndex = 41;
+            this.txtXMK.UseSystemPasswordChar = true;
+            this.txtXMK.TextChanged += new System.EventHandler(this.txtXMK_TextChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(293, 362);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 13);
+            this.label15.TabIndex = 42;
+            this.label15.Text = "Xác nhận";
+            // 
+            // txtMK
+            // 
+            this.txtMK.Location = new System.Drawing.Point(368, 323);
+            this.txtMK.MaxLength = 50;
+            this.txtMK.Name = "txtMK";
+            this.txtMK.Size = new System.Drawing.Size(147, 20);
+            this.txtMK.TabIndex = 38;
+            this.txtMK.UseSystemPasswordChar = true;
+            this.txtMK.TextChanged += new System.EventHandler(this.txtMK_TextChanged);
+            // 
+            // txtTK
+            // 
+            this.txtTK.Location = new System.Drawing.Point(368, 284);
+            this.txtTK.MaxLength = 20;
+            this.txtTK.Name = "txtTK";
+            this.txtTK.Size = new System.Drawing.Size(147, 20);
+            this.txtTK.TabIndex = 37;
+            this.txtTK.TextChanged += new System.EventHandler(this.txtTK_TextChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(293, 287);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(58, 13);
+            this.label16.TabIndex = 40;
+            this.label16.Text = "Tài khoản ";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(293, 326);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(52, 13);
+            this.label17.TabIndex = 39;
+            this.label17.Text = "Mật khẩu";
+            // 
             // frmCreateAccountNDT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 341);
+            this.ClientSize = new System.Drawing.Size(572, 454);
+            this.Controls.Add(this.txtXMK);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.txtMK);
+            this.Controls.Add(this.txtTK);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.txtCofirm);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.cmbBank);
             this.Controls.Add(this.dtpBirthDay);
             this.Controls.Add(this.panel1);
@@ -371,7 +466,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.txtMaNDT);
             this.Controls.Add(this.txtName);
@@ -380,8 +474,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmCreateAccountNDT";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCreateAccountNDT";
             this.Load += new System.EventHandler(this.frmCreateAccountNDT_Load);
             this.panel1.ResumeLayout(false);
@@ -396,7 +491,6 @@
         }
 
         #endregion
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnCreate;
         private System.Windows.Forms.TextBox txtMaNDT;
         private System.Windows.Forms.TextBox txtName;
@@ -404,7 +498,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -430,5 +523,14 @@
         private QL_GDCPDataSet qL_GDCPDataSet;
         private System.Windows.Forms.BindingSource nGANHANGBindingSource1;
         private QL_GDCPDataSetTableAdapters.NGANHANGTableAdapter nGANHANGTableAdapter;
+        private System.Windows.Forms.TextBox txtCofirm;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtXMK;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtMK;
+        private System.Windows.Forms.TextBox txtTK;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
     }
 }

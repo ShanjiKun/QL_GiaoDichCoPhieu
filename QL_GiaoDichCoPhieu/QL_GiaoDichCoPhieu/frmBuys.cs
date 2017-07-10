@@ -13,7 +13,13 @@ namespace QL_GiaoDichCoPhieu
 {
     public partial class frmBuys : Form
     {
-        double availableBalance = 0;
+        UInt64 availableBalance = 0;
+
+        float priceMax;
+        float priceMin;
+
+        UInt64 totalPrice;
+
         public frmBuys()
         {
             InitializeComponent();
@@ -31,7 +37,36 @@ namespace QL_GiaoDichCoPhieu
             loadStock();
         }
 
-        //--Method
+        //--Method--
+        //--------Handle Transaction------
+        void handleTransaction()
+        {
+            string transID = "M";
+            string mode = "LO";
+            int buyCount = Decimal.ToInt32(nudBuyCount.Value);
+            string stockID = cbStock.Text;
+            float price = (float)nudBuyPrice.Value;
+            string accountID = cbAccountID.Text;
+
+            bool isCheckPassword = DatabaseManager.sharedInstance().checkTransactonPassword(tbPasswordTransaction.Text);
+            if (!isCheckPassword)
+            {
+                MessageBox.Show("Mặt khẩu giao dịch không chính xác!");
+                tbPasswordTransaction.Text = "";
+                return;
+            }
+
+            bool isSuccess = DatabaseManager.sharedInstance().createTransaction(transID, mode, buyCount, stockID, price, accountID);
+            if (isSuccess) MessageBox.Show("Đặt lệnh thành công!");
+            refreshUI();
+        }
+        void refreshUI()
+        {
+            nudBuyCount.Value = 0;
+            nudBuyPrice.Value = 0;
+            tbPasswordTransaction.Text = "";
+        }
+        //--------------------------------
         void loadTimeTitle()
         {
             lbDateTime.Text = DateTime.Now.ToString();
@@ -64,18 +99,21 @@ namespace QL_GiaoDichCoPhieu
         }
         void updateTotalPrice()
         {
-            int stockBanlance = Int32.Parse(tbStockBalance.Text);
-            int buyPrice = Int32.Parse(tbBuyPrice.Text);
-            int totalPrice = stockBanlance * buyPrice;
-            lbTotalPrice.Text = totalPrice.ToString();
+            decimal stockCount = nudBuyCount.Value;
+            decimal buyPrice = nudBuyPrice.Value;
+            UInt64 total = Decimal.ToUInt64(stockCount*buyPrice*1000);
+            lbTotalPrice.Text = total.ToString() + " VND";
+            totalPrice = total;
         }
-        bool valideate()
+        void valideate()
         {
+            btnBuy.Enabled = false;
+
             //---BankAcount---
             if (cbAccountID.Text.Length == 0)
             {
-                MessageBox.Show("Bank Account empty!");
-                return false;
+                Console.WriteLine("Bank Account empty!");
+                return;
             }
 
             List<BankAccount> listBA = (List<BankAccount>)cbAccountID.DataSource;
@@ -87,65 +125,74 @@ namespace QL_GiaoDichCoPhieu
             }
             if (i == listBA.Count)
             {
-                MessageBox.Show("Bank Account invalid!");
-                return false;
+                Console.WriteLine("Bank Account invalid!");
+                return;
             }
             //---Stock ID----
             if (cbStock.Text.Length == 0)
             {
-                MessageBox.Show("Stock ID empty!");
-                return false;
+                Console.WriteLine("Stock ID empty!");
+                return;
             }
             List<ComboBoxItem> listCB = (List<ComboBoxItem>)cbStock.DataSource;
             i = 0;
             while (i < listCB.Count)
             {
-                if (listCB[i].value == cbAccountID.Text) break;
+                if (listCB[i].value == cbStock.Text) break;
                 i++;
             }
             if (i == listCB.Count)
             {
-                MessageBox.Show("Stock ID invalid!");
-                return false;
+                Console.WriteLine("Stock ID invalid!");
+                return;
             }
             //---Stock Balance---
-            if (tbStockBalance.Text.Length == 0)
+            if (nudBuyCount.Value == 0)
             {
-                MessageBox.Show("Stock Balance empty!");
-                return false;
+                Console.WriteLine("Stock Balance empty!");
+                return;
             }
-            if (double.Parse(tbStockBalance.Text) > 10000000)
+            if (nudBuyCount.Value > 10000000)
             {
-                MessageBox.Show("Maximum of Stock balance is 10,000,000!");
-                return false;
+                Console.WriteLine("Maximum of Stock balance is 10,000,000!");
+                return;
             }
             //---Buy Price----
-            if (tbBuyPrice.Text.Length == 0)
+            if (nudBuyPrice.Value == 0)
             {
-                MessageBox.Show("Buy price empty!");
-                return false;
+                Console.WriteLine("Buy price must greater than 0.0!");
+                return;
             }
-            if (double.Parse(tbBuyPrice.Text) > 10000000)
+            if (nudBuyPrice.Value > 10000)
             {
-                MessageBox.Show("Maximum of Stock balance is 10,000,000!");
-                return false;
+                Console.WriteLine("Maximum of buy price is 10,000,000!");
+                return;
             }
-            //--
+            if ((float)nudBuyPrice.Value*1000 < priceMin || (float)nudBuyPrice .Value*1000 > priceMax)
+            {
+                Console.WriteLine("Price must in " + priceMin + " < your price < " + priceMax);
+                return;
+            }
+            //---Password----
             if (tbPasswordTransaction.Text.Length == 0)
             {
-                MessageBox.Show("Password empty!");
-                return false;
+                Console.WriteLine("Password empty!");
+                return;
+            }
+            //---TotalPrice----
+            if (totalPrice > availableBalance)
+            {
+                Console.WriteLine("Your balance don't enough!");
+                return;
             }
 
-            return true;
+            btnBuy.Enabled = true;
         }
         //----Action----
         private void oncbAccountIDChanged(object sender, EventArgs e)
         {
-            if (!cbAccountID.SelectedValue.GetType().Equals(typeof(String))) return;
-
-            String accountID = cbAccountID.SelectedValue.ToString();
-            List<String> list = DatabaseManager.sharedInstance().getBankNameAndBalance(accountID);
+            BankAccount bankAcc = (BankAccount)cbAccountID.SelectedItem;
+            List<String> list = DatabaseManager.sharedInstance().getBankNameAndBalance(bankAcc.accountID);
             if (list.Count == 0)
             {
                 MessageBox.Show("Can't get Name and Banlance!");
@@ -153,8 +200,11 @@ namespace QL_GiaoDichCoPhieu
             }
 
             lbBankName.Text = list[0];
-            lbBalance.Text = list[1] + " VND";
-            availableBalance = double.Parse(list[1]);
+            lbBalance.Text = double.Parse(list[1])*1000 + " VND";
+            availableBalance = (UInt64)float.Parse(list[1])*1000;
+
+            //
+            valideate();
         }
 
         private void oncbStockChanged(object sender, EventArgs e)
@@ -171,21 +221,36 @@ namespace QL_GiaoDichCoPhieu
             lbPriceMax.Text = list[0];
             lbPriceMin.Text = list[1];
             lbPriceMiddle.Text = list[2];
+
+            priceMax = float.Parse(list[0]) * 1000;
+            priceMin = float.Parse(list[1]) * 1000;
+
+            //
+            valideate();
         }
 
-        private void onLbStockBalanceChanged(object sender, EventArgs e)
+        private void onBuyBalanceChanged(object sender, EventArgs e)
         {
-            if (tbStockBalance.Text.Length == 0 || tbBuyPrice.Text.Length == 0) return;
             updateTotalPrice();
+
+            //
+            valideate();
         }
 
-        private void onLbBuyPriceChanged(object sender, EventArgs e)
+        private void onBuyPriceChanged(object sender, EventArgs e)
         {
-            if (tbStockBalance.Text.Length == 0 || tbBuyPrice.Text.Length == 0) return;
             updateTotalPrice();
+
+            //
+            valideate();
         }
 
         private void onBuyTapped(object sender, EventArgs e)
+        {
+            handleTransaction(); 
+        }
+
+        private void onTextChanged(object sender, EventArgs e)
         {
             valideate();
         }
